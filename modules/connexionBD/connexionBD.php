@@ -1,14 +1,11 @@
 <?php
 
-if (!defined('MY_APP')) {
-    exit('Accès non authorisé');
-}
-    Class Connexion {
+    Class ConnexionBD {
         protected static $bdd;
         public function __construct() {
             $this->connexion();
         }
-        public function connexion() {
+        public static function connexion() {
             try {
                 self::$bdd = new PDO('mysql:host=localhost;dbname=petway', 'horeb', 'horeb');
                 self::$bdd->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);

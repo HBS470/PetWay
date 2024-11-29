@@ -1,15 +1,11 @@
 <?php
-if (!defined('MY_APP')) {
-    exit('Accès non autorisé');
-}
-require_once './modules/connexionBD/connxionBD.php';
 
-class ConnexionModel extends Connexion {
+require_once './modules/connexionBD/connexionBD.php';
 
-
+class ConnexionModel extends ConnexionBD {
 
     public function checkCredentials($username, $password) {
-        $stmt = self::$bdd->prepare('SELECT nom, passw_hash FROM utilisateur WHERE username = :username');
+        $stmt = self::$bdd->prepare('SELECT nom FROM utilisateur');
         $stmt->bindParam(':username', $username);
         $stmt->execute();
         $user = $stmt->fetch(PDO::FETCH_ASSOC);
