@@ -11,9 +11,10 @@
 	<body>
 	<?php
 	require_once './modules/connexionBD/connexionBD.php';
-		$bdd = ConnexionBD::connexion();
+
+        $connexion = new ConnexionBD();
 		try {
-			$stmt = $bdd->prepare('SELECT nom FROM utilisateur');
+			$stmt = $connexion::$bdd->prepare('SELECT nom FROM utilisateur;');
 			$stmt->execute();
 			$resultats = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
@@ -23,7 +24,7 @@
 			}
 		}
 			catch (PDOException $e) {
-			die('Erreur lors de la recuperation du classement : ' . $e->getMessage());
+			die('Erreur lors de la recuperation des noms : ' . $e->getMessage());
 			}
 
 		
