@@ -1,7 +1,7 @@
 <?php
 
     Class ConnexionBD {
-        protected static $bdd;
+        public static $bdd;
         public function __construct() {
             $this->connexion();
         }
@@ -9,7 +9,7 @@
             try {
                 self::$bdd = new PDO('mysql:host=localhost;dbname=petway', 'horeb', 'horeb');
                 self::$bdd->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-                echo 'Connexion réussie à la base de données!';
+                echo 'Connexion réussie à la base de données !';
             } catch (PDOException $e) {
                 die('Erreur de connexion à la base de données : ' . $e->getMessage());
             }
