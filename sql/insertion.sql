@@ -87,7 +87,7 @@ VALUES
 INSERT INTO envoyer (destinataire, expediteur, message)
 VALUES 
 (2, 1, 'Bonjour, je suis intéressé par votre service de garde.'),
-(3, 1, 'Je souhaite plus d\'informations sur vos services.'),
+(3, 1, 'Je souhaite plus d informations sur vos services.'),
 (1, 2, 'Merci pour votre intérêt, je serai disponible ce week-end.');
 
 -- Insertion de données dans la table avis
@@ -106,5 +106,5 @@ VALUES
 -- Insertion de données dans la table CGU
 INSERT INTO cgu (nom)
 VALUES 
-('Conditions Générales d\'Utilisation 2024');
+('Conditions Générales d Utilisation 2024');
 
