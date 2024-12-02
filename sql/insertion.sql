@@ -66,13 +66,13 @@ VALUES
 INSERT INTO annonce (titre, prix, description, disponibilite, id_utilisateur)
 VALUES 
 ('Garde de chien', 50.0, 'Garde de chien pour une journée', TRUE, 1),
-('Cours d\'éducation canine', 100.0, 'Éducation pour chiots et chiens adultes', TRUE, 2),
+('Cours d éducation canine', 100.0, 'Éducation pour chiots et chiens adultes', TRUE, 2),
 ('Promenade de chien', 20.0, 'Service de promenade pour chiens', TRUE, 3);
 
 -- Insertion de données dans la table service
 INSERT INTO service (nom)
 VALUES 
-('Garde d\'animaux'),
+('Garde d animaux'),
 ('Éducation canine'),
 ('Promenade');
 

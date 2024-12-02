@@ -15,65 +15,65 @@ DROP TABLE IF EXISTS avis;
 DROP TABLE IF EXISTS cgu;
 DROP TABLE IF EXISTS faq;
 
-
 -- Table utilisateur (1)
 CREATE TABLE utilisateur (
-    id_utilisateur SERIAL PRIMARY KEY,
-    nom VARCHAR(255),
-    prenom VARCHAR(255),
-    pseudo VARCHAR(255),
-    passw_hash TEXT,
-    email VARCHAR(255),
-    ville VARCHAR(255),
-    photo VARCHAR(255)
+                             id_utilisateur INT PRIMARY KEY AUTO_INCREMENT,
+                             nom VARCHAR(255),
+                             prenom VARCHAR(255),
+                             pseudo VARCHAR(255),
+                             passw_hash TEXT,
+                             email VARCHAR(255),
+                             ville VARCHAR(255),
+                             photo VARCHAR(255)
 );
 
 -- Table droit (1)
 CREATE TABLE droit (
-    id_droit SERIAL PRIMARY KEY,
-    nom VARCHAR(255)
+                       id_droit INT PRIMARY KEY AUTO_INCREMENT,
+                       nom VARCHAR(255)
 );
 
 -- Table a_le_droit (1,N relation entre utilisateur et droit)
 CREATE TABLE a_le_droit (
-    id_aledroit SERIAL PRIMARY KEY,
-    id_utilisateur INT,
-    id_droit INT,
-    FOREIGN KEY (id_utilisateur) REFERENCES utilisateur(id_utilisateur),
-    FOREIGN KEY (id_droit) REFERENCES droit(id_droit)
+                            id_aledroit INT PRIMARY KEY AUTO_INCREMENT,
+                            id_utilisateur INT,
+                            id_droit INT,
+                            FOREIGN KEY (id_utilisateur) REFERENCES utilisateur(id_utilisateur),
+                            FOREIGN KEY (id_droit) REFERENCES droit(id_droit)
 );
 
 -- Table langue (1)
 CREATE TABLE langue (
-    id_langue SERIAL PRIMARY KEY,
-    nom VARCHAR(255)
+                        id_langue INT PRIMARY KEY AUTO_INCREMENT,
+                        nom VARCHAR(255)
 );
 
 -- Relation "parle" (1,1 relation entre utilisateur et langue)
 CREATE TABLE parle (
-	id_parle SERIAL PRIMARY KEY,
-	id_user INT,
-	id_langue INT,
-	FOREIGN KEY (id_user) REFERENCES utilisateur(id_utilisateur),
-	FOREIGN KEY (id_langue) REFERENCES langue(id_langue)
+                       id_parle INT PRIMARY KEY AUTO_INCREMENT,
+                       id_user INT,
+                       id_langue INT,
+                       FOREIGN KEY (id_user) REFERENCES utilisateur(id_utilisateur),
+                       FOREIGN KEY (id_langue) REFERENCES langue(id_langue)
 );
+
 -- Table animal (1)
 CREATE TABLE animal (
-    id_animal SERIAL PRIMARY KEY,
-    nom VARCHAR(255),
-    poids FLOAT,
-    race VARCHAR(255),
-    age INT,
-    taille FLOAT,
-    bio TEXT,
-    vaccin BOOLEAN,
-    photo VARCHAR(255)
+                        id_animal INT PRIMARY KEY AUTO_INCREMENT,
+                        nom VARCHAR(255),
+                        poids FLOAT,
+                        race VARCHAR(255),
+                        age INT,
+                        taille FLOAT,
+                        bio TEXT,
+                        vaccin BOOLEAN,
+                        photo VARCHAR(255)
 );
 
 -- Table type_animal (1)
 CREATE TABLE type_animal (
-    id_type SERIAL PRIMARY KEY,
-    nom VARCHAR(255)
+                             id_type INT PRIMARY KEY AUTO_INCREMENT,
+                             nom VARCHAR(255)
 );
 
 -- Table est (1,1 relation entre animal et type_animal)
@@ -84,26 +84,26 @@ ALTER TABLE animal
 
 -- Table activite (1)
 CREATE TABLE activite (
-    id_activite SERIAL PRIMARY KEY,
-    nom VARCHAR(255)
+                          id_activite INT PRIMARY KEY AUTO_INCREMENT,
+                          nom VARCHAR(255)
 );
 
 -- Table fait (relation N:M entre animal et activite)
 CREATE TABLE activité_animal (
-    id_activité_animal SERIAL PRIMARY KEY,
-    id_animal INT,
-    id_activite INT,
-    FOREIGN KEY (id_animal) REFERENCES animal(id_animal),
-    FOREIGN KEY (id_activite) REFERENCES activite(id_activite)
+                                 id_activité_animal INT PRIMARY KEY AUTO_INCREMENT,
+                                 id_animal INT,
+                                 id_activite INT,
+                                 FOREIGN KEY (id_animal) REFERENCES animal(id_animal),
+                                 FOREIGN KEY (id_activite) REFERENCES activite(id_activite)
 );
 
 -- Table annonce (1)
 CREATE TABLE annonce (
-    id_annonce SERIAL PRIMARY KEY,
-    titre VARCHAR(255),
-    prix FLOAT,
-    description TEXT,
-    disponibilite BOOLEAN
+                         id_annonce INT PRIMARY KEY AUTO_INCREMENT,
+                         titre VARCHAR(255),
+                         prix FLOAT,
+                         description TEXT,
+                         disponibilite BOOLEAN
 );
 
 -- Table creer (relation 1,N entre utilisateur et annonce)
@@ -114,52 +114,51 @@ ALTER TABLE annonce
 
 -- Table service (1)
 CREATE TABLE service (
-    id_service SERIAL PRIMARY KEY,
-    nom VARCHAR(255)
+                         id_service INT PRIMARY KEY AUTO_INCREMENT,
+                         nom VARCHAR(255)
 );
 
 -- Table annonce_service (relation N:M entre annonce et service)
 CREATE TABLE annonce_service (
-    id_annonce_service SERIAL PRIMARY KEY,
-    id_annonce INT,
-    id_service INT,
-    FOREIGN KEY (id_annonce) REFERENCES annonce(id_annonce),
-    FOREIGN KEY (id_service) REFERENCES service(id_service)
+                                 id_annonce_service INT PRIMARY KEY AUTO_INCREMENT,
+                                 id_annonce INT,
+                                 id_service INT,
+                                 FOREIGN KEY (id_annonce) REFERENCES annonce(id_annonce),
+                                 FOREIGN KEY (id_service) REFERENCES service(id_service)
 );
 
 -- Table envoyer (relation 1,N entre utilisateur et message)
 -- Un utilisateur peut envoyer plusieurs messages
 CREATE TABLE envoyer (
-    id_envoyer SERIAL PRIMARY KEY,
-    destinataire INT,
-    expediteur INT,
-    message TEXT,
-    FOREIGN KEY (destinataire) REFERENCES utilisateur(id_utilisateur),
-    FOREIGN KEY (expediteur) REFERENCES utilisateur(id_utilisateur)
+                         id_envoyer INT PRIMARY KEY AUTO_INCREMENT,
+                         destinataire INT,
+                         expediteur INT,
+                         message TEXT,
+                         FOREIGN KEY (destinataire) REFERENCES utilisateur(id_utilisateur),
+                         FOREIGN KEY (expediteur) REFERENCES utilisateur(id_utilisateur)
 );
 
 -- Table avis (relation 1,N entre utilisateur et annonce pour les avis)
 -- Un utilisateur peut laisser plusieurs avis sur différentes annonces
 CREATE TABLE avis (
-    id_avis SERIAL PRIMARY KEY,
-    id_utilisateur INT,
-    id_annonce INT,
-    etoile INT,
-    commentaires TEXT,
-    FOREIGN KEY (id_utilisateur) REFERENCES utilisateur(id_utilisateur),
-    FOREIGN KEY (id_annonce) REFERENCES annonce(id_annonce)
+                      id_avis INT PRIMARY KEY AUTO_INCREMENT,
+                      id_utilisateur INT,
+                      id_annonce INT,
+                      etoile INT,
+                      commentaires TEXT,
+                      FOREIGN KEY (id_utilisateur) REFERENCES utilisateur(id_utilisateur),
+                      FOREIGN KEY (id_annonce) REFERENCES annonce(id_annonce)
 );
 
 -- Table FAQ (1)
 CREATE TABLE faq (
-    id_faq SERIAL PRIMARY KEY,
-    question TEXT,
-    reponse TEXT
+                     id_faq INT PRIMARY KEY AUTO_INCREMENT,
+                     question TEXT,
+                     reponse TEXT
 );
 
 -- Table CGU (1)
 CREATE TABLE cgu (
-    id_cgu SERIAL PRIMARY KEY,
-    nom VARCHAR(255)
+                     id_cgu INT PRIMARY KEY AUTO_INCREMENT,
+                     nom VARCHAR(255)
 );
-
