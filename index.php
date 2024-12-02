@@ -10,24 +10,7 @@
 	</head>
 	<body>
 	<?php
-	require_once './modules/connexionBD/connexionBD.php';
-
-        $connexion = new ConnexionBD();
-		try {
-			$stmt = $connexion::$bdd->prepare('SELECT nom FROM utilisateur;');
-			$stmt->execute();
-			$resultats = $stmt->fetchAll(PDO::FETCH_ASSOC);
-
-			// Afficher les résultats
-			foreach ($resultats as $resultat) {
-			echo '<p>' . htmlspecialchars($resultat['nom']) . '</p>';
-			}
-		}
-			catch (PDOException $e) {
-			die('Erreur lors de la recuperation des noms : ' . $e->getMessage());
-			}
-
-		
+	
 	?>
 
     </body>
