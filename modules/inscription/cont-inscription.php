@@ -7,12 +7,12 @@ if (!defined('MY_APP')) {
 }
 
 require_once './modules/inscription/mod-inscription.php';
-require_once './modules/inscription/view-inscription.php';
+require_once './modules/connexion/view-connexion.php';
 
 class InscriptionController {
     public function handle() {
         $model = new InscriptionModel();
-        $view = new InscriptionView();
+        $view = new ConnexionView();
 
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $nom = $_POST['nom'] ?? '';
@@ -23,12 +23,34 @@ class InscriptionController {
             $confirm_password = $_POST['confirm_password'] ?? '';
             $ville = $_POST['ville'] ?? '';
             $photo = $_POST['photo'] ?? '';
+            $_SESSION['active_tab'] = 'signup';
 
-            if (empty($nom) || empty($prenom)  || empty($pseudo) || empty($email) || empty($password)) {
-                $_SESSION['error_message'] = 'Les champs ne doivent pas être vides.';
+            if (empty($nom)) {
+                $_SESSION['error_message'] = 'Le nom est obligatoire !';
+                $view->render();
+                return;
+            }elseif (empty($prenom)) {
+                $_SESSION['error_message'] = 'Le prénom est obligatoire !';
+                $view->render();
+                return;
+            }elseif (empty($email)) {
+                $_SESSION['error_message'] = 'L\'email est obligatoire !';
+                $view->render();
+                return;
+            }elseif (empty($password)) {
+                $_SESSION['error_message'] = 'Le mot de passe est obligatoire !';
+                $view->render();
+                return;
+            }elseif (empty($confirm_password)) {
+                $_SESSION['error_message'] = 'Confirmez votre mot de passe !';
+                $view->render();
+                return;
+            }elseif (empty($ville)) {
+                $_SESSION['error_message'] = 'La ville est obligatoire !';
                 $view->render();
                 return;
             }
+
 
             if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
                 $_SESSION['error_message'] = 'L\'adresse e-mail est invalide.';

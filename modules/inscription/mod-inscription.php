@@ -2,9 +2,9 @@
 if (!defined('MY_APP')) {
     exit('Accès non authorisé');
 }
-require_once './modules/connexionBD/connxionBD.php';
+require_once './modules/connexionBD/connexionBD.php';
 
-class InscriptionModel extends Connexion
+class InscriptionModel extends ConnexionBD
 {
     public function checkUsernameExists($pseudo)
     {

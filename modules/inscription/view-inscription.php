@@ -6,6 +6,8 @@ if (!defined('MY_APP')) {
 
 class InscriptionView {
     public function render() {
+        $error_message = isset($_SESSION['error_message']) ? $_SESSION['error_message'] : '';
+        unset($_SESSION['error_message'])
         ?>
 
         <div class="container mt-5">

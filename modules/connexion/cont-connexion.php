@@ -10,17 +10,28 @@ require_once './modules/connexion/view-connexion.php';
 
 class ConnexionController
 {
-    public function handle()
-    {
+    public function handle() {
+        unset($_SESSION['error_message']); // Effacer le message d'erreur après l'affichage
+
         $model = new ConnexionModel();
         $view = new ConnexionView();
 
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $pseudo = $_POST['pseudo'] ?? '';
             $password = $_POST['password'] ?? '';
+            $_SESSION['active_tab'] = 'login';
 
-            if (empty($pseudo) || empty($password)) {
+            if (empty($pseudo) && empty($password)) {
                 $_SESSION['error_message'] = 'Veuillez remplir tous les champs !';
+                $view->render();
+                return;
+
+            } elseif (empty($password)) {
+                $_SESSION['error_message'] = 'Veuillez saisir un mot de passe !';
+                $view->render();
+                return;
+            } elseif(empty($pseudo)) {
+                $_SESSION['error_message'] = 'Veuillez saisir un pseudo !';
                 $view->render();
                 return;
             }

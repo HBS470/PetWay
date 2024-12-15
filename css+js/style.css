@@ -1,3 +1,186 @@
-* {
-    font-family: "Roboto Thin", serif;
+*{
+    font-family: "Roboto Light", sans-serif;
+}
+
+body {
+    margin: 0;
+    background-color: #f5e8f0;
+}
+
+/* Header styling */
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #dbc4a3;
+    padding: 10px 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.header .logo {
+    display: flex;
+    align-items: center;
+}
+
+.header .logo img {
+    height: 50px;
+    width: 50px;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+
+.header .logo h1 {
+    font-size: 24px;
+    font-weight: bold;
+    color: #603d4d;
+    margin: 0;
+}
+
+.header .menu {
+    display: flex;
+    align-items: center;
+}
+
+.header .menu-icon {
+    height: 30px;
+    width: 30px;
+    cursor: pointer;
+}
+
+.header .user-icon {
+    height: 40px;
+    width: 40px;
+    border-radius: 50%;
+    margin-right: 20px;
+}
+
+@media (max-width: 768px) {
+    .header {
+        padding: 10px;
+    }
+
+    .header .logo h1 {
+        font-size: 20px;
+    }
+
+    .header .menu-icon {
+        height: 25px;
+        width: 25px;
+    }
+
+    .header .user-icon {
+        height: 30px;
+        width: 30px;
+    }
+}
+
+/* Overlay background */
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    visibility: hidden;
+    opacity: 0;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.overlay.active {
+    visibility: visible;
+    opacity: 1;
+}
+
+/* Popup container */
+.popup {
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    width: 90%;
+    max-width: 600px;
+    padding: 20px;
+    text-align: center;
+    position: relative;
+}
+
+.popup h2 {
+    margin: 0 0 20px;
+    font-size: 24px;
+    color: #333;
+}
+
+.popup .tabs {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 20px;
+    border-bottom: 2px solid #ddd;
+}
+
+.popup .tab {
+    padding: 10px 20px;
+    cursor: pointer;
+    font-size: 18px;
+    color: #666;
+    border-bottom: 3px solid transparent;
+    transition: color 0.3s, border-bottom 0.3s;
+}
+
+.popup .tab.active {
+    color: #333;
+    border-bottom: 3px solid #4CAF50;
+}
+
+.popup .form-container {
+    display: none;
+}
+
+.popup .form-container.active {
+    display: block;
+}
+
+.popup input {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 16px;
+}
+
+.popup button {
+    background: #4CAF50;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 4px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.popup .error-message {
+    color: red;
+    font-size: 14px;
+    margin-top: 10px;
+}
+
+.popup button:hover {
+    background: #45a049;
+}
+
+.popup .close {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    background: transparent;
+    border: none;
+    font-size: 18px;
+    cursor: pointer;
+}
+
+.form-width {
+    width: 95%;
 }
