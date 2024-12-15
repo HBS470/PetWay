@@ -52,16 +52,25 @@
                 break;
 
             case 'connexion':
-                include_once "modules/connexion/cont-mod-connexion.php";
+                include_once "modules/connexion/cont-connexion.php";
                 $controller = new ConnexionController();
                 $controller->handle();
+                break;
+            case 'deconnexion':
+                include_once "modules/deconnexion/cont-deconnexion.php";
+                $controller = new DeconnexionController();
+                $controller->handle();
+                break;
+
+            default:
+                echo "Aucun module détecté";
                 break;
         }
 
     }
     else {
 
-        include_once "accueil.php";
+
     }
 
     include_once "footer.php";
@@ -93,8 +102,4 @@
     ?>
 
     </body>
-
-    <footer>
-        
-    </footer>
 </html>
