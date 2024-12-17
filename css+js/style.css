@@ -1,0 +1,327 @@
+/* Réinitialisation des marges et des paddings */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    background-color:#FFEEFB; /* Définit l'arrière-plan de la page en rose */
+  }
+  
+  /* Styles pour le header */
+  header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    background-color: #EDE0C9;
+    position: relative;
+  }
+  
+  header h1 {
+    flex: 1;
+    margin-top: 10px;
+    text-align: center;
+    font-size: 2.5rem;
+    font-family: Arial, sans-serif;
+    color: black;
+  }
+  
+  .logo {
+    height: 80px;
+    width: auto;
+    position: absolute;
+    margin-top: 60px;
+    left: 10px;
+    z-index: 1;
+  }
+  
+  /* Menu hamburger */
+  .menu-burger {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    height: 24px;
+    width: 30px;
+    cursor: pointer;
+    z-index: 2;
+  }
+  
+  .menu-burger .line {
+    height: 3px;
+    width: 100%;
+    background-color: #333;
+    border-radius: 2px;
+  }
+  
+  /* Menu déroulant */
+  .menu {
+    display: none;
+    position: absolute;
+    top: 60px;
+    right: 20px;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+  }
+  
+  .menu a {
+    display: block;
+    padding: 10px 20px;
+    color: #333;
+    text-decoration: none;
+    font-family: Arial, sans-serif;
+    font-size: 16px;
+  }
+  
+  .menu a:hover {
+    background-color: #EDE0C9;
+    color: #000;
+  }
+  
+  /* Afficher le menu quand actif */
+  .menu.active {
+    display: block;
+  }
+  
+  /* Slider */
+  .slider {
+    position: relative;
+    width: 100%;
+    height: 100px;
+    overflow: hidden;
+    background-color: #EDE0C9;
+  }
+  
+  .slide {
+    position: absolute;
+    top: 0;
+    left: 100%;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    transition: left 0.5s ease-in-out;
+  }
+  
+  .slide.active {
+    left: 0;
+  }
+  
+  /* Section de recherche */
+  .search-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px; /* Ajoute un espacement entre les éléments */
+  }
+  
+  .search-container {
+    position: relative;
+    display: flex;
+    align-items: center;
+    width: 100%; /* Permet à la barre de recherche d'être flexible */
+    max-width: 500px; /* Définit une largeur maximale */
+  }
+  
+  .search-wrapper {
+    position: relative;
+    flex: 1; /* Permet à la barre de recherche d'occuper tout l'espace disponible */
+  }
+  
+  .search-bar {
+    width: 100%;
+    height: 40px;
+    padding: 10px 40px 10px 10px; /* Ajuste les espaces intérieurs pour inclure la place de la poubelle */
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+  }
+  
+  .clear-button {
+    position: absolute;
+    right: 10px; /* Place la poubelle à droite */
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    color: #333;
+    font-size: 18px;
+    cursor: pointer;
+    display: none; /* Par défaut, le bouton est caché */
+  }
+  
+  .clear-button:hover {
+    color: red;
+  }
+  
+  .search-icon, .add-button {
+    height: 40px;
+    width: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: white;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  /* Réglages pour les tablettes */
+  @media (max-width: 1024px) {
+    /* Réduire la taille du header */
+    header {
+        flex-wrap: wrap;
+        padding: 10px;
+    }
+  
+    header h1 {
+        font-size: 2rem;
+    }
+  
+    .logo {
+        height: 60px;
+    }
+  
+    .menu-burger {
+        width: 25px;
+        height: 20px;
+    }
+  
+    .menu a {
+        font-size: 14px;
+    }
+  
+    .slider {
+        height: 120px; /* Ajuster la hauteur du slider */
+    }
+  
+    .search-section {
+        flex-direction: column;
+        gap: 10px; /* Espacement entre les éléments */
+    }
+  
+    .search-bar {
+        width: 90%; /* Réduire la largeur de la barre pour qu'elle reste dans l'écran */
+    }
+  
+    .search-icon, .add-button {
+        height: 35px;
+        width: 35px;
+        font-size: 14px; /* Réduire la taille des icônes */
+    }
+  }
+  
+  /* Réglages pour les smartphones */
+  @media (max-width: 768px) {
+    /* Header */
+    header {
+        padding: 10px;
+    }
+  
+    header h1 {
+        font-size: 1.8rem;
+    }
+  
+    .logo {
+        height: 50px;
+    }
+  
+    .menu {
+        top: 50px; /* Ajuster le menu déroulant */
+        width: 90%; /* Élargir pour s'adapter à l'écran */
+        right: 5%;
+    }
+  
+    .menu a {
+        font-size: 12px;
+    }
+  
+    /* Slider */
+    .slider {
+        height: 100px; /* Réduire la hauteur */
+    }
+  
+    /* Barre de recherche */
+    .search-section {
+        flex-direction: column;
+        align-items: stretch; /* Étendre les éléments */
+        gap: 10px;
+    }
+  
+    .search-bar {
+        width: 100%;
+    }
+  
+    .search-icon, .add-button {
+        height: 30px;
+        width: 30px;
+        font-size: 12px;
+    }
+  }
+  
+  /* Réglages pour les très petits smartphones */
+  @media (max-width: 480px) {
+    header h1 {
+        font-size: 1.5rem;
+    }
+  
+    .logo {
+        height: 40px;
+    }
+  
+    .menu-burger {
+        width: 20px;
+        height: 16px;
+    }
+  
+    .menu a {
+        font-size: 10px;
+        padding: 8px 15px;
+    }
+  
+    .search-section {
+        flex-direction: column;
+    }
+  
+    .search-bar {
+        width: 100%;
+        height: 35px; /* Réduire légèrement la hauteur */
+        font-size: 14px;
+    }
+  
+    .search-icon, .add-button {
+        height: 30px;
+        width: 30px;
+    }
+  }
+  
+  /* Menu burger actif sur mobile */
+  @media (max-width: 768px) {
+    .menu.active {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        width: 100%; /* Le menu occupe toute la largeur */
+        position: fixed;
+        top: 0;
+        left: 0;
+        background-color: #fff;
+        padding: 20px;
+        border-radius: 0;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+        z-index: 10;
+    }
+  
+    .menu a {
+        width: 100%; /* Les liens s'étendent sur toute la largeur */
+        text-align: left; /* Alignement à gauche */
+        padding: 10px 15px;
+    }
+  }
+  
+  
