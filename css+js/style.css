@@ -1,16 +1,3 @@
-/* Global */
-body {
-    font-family: Arial, sans-serif;
-    background-color: #f4f4f9;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    justify-content: center; /* Centre horizontalement */
-    align-items: flex-start; /* Aligne en haut de la page */
-    min-height: 100vh; /* Assure que le contenu occupe toute la hauteur de l'écran */
-    box-sizing: border-box;
-}
-
 /* Conteneur principal */
 .container {
     background: #ffffff;

@@ -1,12 +1,7 @@
-<!DOCTYPE html>
-<html lang="fr">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Profil Petsitter</title>
-    <link rel="stylesheet" href="../../css+js/ProfilP.css">
-</head>
-<body>
+<?php
+class ProfilView {
+    public function render () {
+?>
     <div class="profile-container">
         <!-- Photo de profil et infos utilisateur -->
         <div class="profile-header">
@@ -63,7 +58,7 @@
         <!-- Journée type -->
         <h2>🕒 Journée type</h2>
         <div class="input-group">
-            <textarea id="daily-routine" placeholder="Décrivez votre journée type ici..."></textarea>
+            <textarea class="daily-routine" placeholder="Décrivez votre journée type ici..."></textarea>
         </div>
 
             <!-- Langues Parlées -->
@@ -106,11 +101,11 @@
 
         <!-- Informations supplémentaires -->
         <h2>📝 Informations supplémentaires</h2>
-        <textarea placeholder="Ajoutez des informations supplémentaires ici..."></textarea>
+        <textarea class="daily-routine" placeholder="Ajoutez des informations supplémentaires ici..."></textarea>
 
         </div>
-    </div>
 
-    <script src="../../css+js/script.js"></script>
-</body>
-</html>
+<?php
+    }
+}
+?>
