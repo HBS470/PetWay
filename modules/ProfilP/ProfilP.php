@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Profil Petsitter</title>
-    <link rel="stylesheet" href="../css+js/ProfilP.css">
+    <link rel="stylesheet" href="../../css+js/ProfilP.css">
 </head>
 <body>
     <div class="profile-container">
@@ -107,6 +107,6 @@
         </div>
     </div>
 
-    <script src="../css+js/script.js"></script>
+    <script src="../../css+js/script.js"></script>
 </body>
 </html>
