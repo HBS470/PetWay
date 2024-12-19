@@ -17,6 +17,11 @@
 
         switch ($module) {
 
+            case 'cgu' :
+                include_once "modules/CGU&ML/cont-cgu.php";
+                $controller = new CguController();
+                $controller->handle();
+                break;
 
             default:
                 echo 'Aucun module detecté !';

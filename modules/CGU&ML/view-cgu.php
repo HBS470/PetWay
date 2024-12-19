@@ -1,22 +1,8 @@
-<!DOCTYPE html>
-<html lang="en">
+<?php
+class CguView {
+    public function render() {
 
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Petway Contacts</title>
-  <link rel="stylesheet" href="style.css">
-  <script src="script.js" defer></script>
-
-</head>
-
-<body>
-  <div class="header">
-    <img src="Logo.png" alt="Image du site" class="image">
-    <h2>CGU & Mentions légales</h2>
-  </div>
-
-  <main>
+?><main>
     <section id="CGU">
       <h2>Conditions générales d'utilisation</h2>
       <div class="Conditions">
@@ -85,10 +71,7 @@
       </div>
     </section>
   </main>
-
-  <footer>
-    <p>&copy; 2024 Petway. Tout droits réservés..</p>
-  </footer>
-</body>
-
-</html>
+ <?php
+    }
+}
+?>
