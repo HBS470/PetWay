@@ -20,7 +20,7 @@
 
                 <div class="container">
                     <div class="place_menu">
-                        <nav class="menu">
+                        <nav class="menu-faq">
                             <a href="#section1">En savoir plus sur Petway</a>
                             <a href="#section2">Réservation</a>
                             <a href="#section3">Sécurité</a>

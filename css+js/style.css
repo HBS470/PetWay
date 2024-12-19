@@ -52,13 +52,13 @@ body{
 }
 
 
-.menu{
+.menu-faq{
     width: 200px;
     padding: 10px 0;
     top:50px;
 }
 
-.menu a {
+.menu-faq a {
     text-decoration: none;
     color: #e585cf;
     display: block;
@@ -67,7 +67,7 @@ body{
     font-size: 17px;
 }
 
-.menu a:hover {
+.menu-faq a:hover {
     text-decoration: underline;
 }
 
