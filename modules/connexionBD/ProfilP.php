@@ -3,130 +3,110 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Créer un profil Petsitter</title>
-    <link rel="stylesheet" href="profil.css">
+    <title>Profil Petsitter</title>
+    <link rel="stylesheet" href="../css+js/ProfilP.css">
 </head>
 <body>
     <div class="profile-container">
-        <header class="profile-header">
-            <!-- Photo de profil -->
-            <label for="profile-pic" class="profile-pic-label">
-                <img src="placeholder.jpg" alt="Photo de profil" id="profile-pic-preview" class="profile-pic">
-                <input type="file" id="profile-pic" name="profile-pic" accept="image/*" onchange="previewImage(event)">
-                <p class="upload-instruction">Cliquez pour ajouter une photo</p>
+        <!-- Photo de profil et infos utilisateur -->
+        <div class="profile-header">
+            <input type="file" id="profile-pic" accept="image/*" style="display: none;">
+            <label for="profile-pic" class="profile-pic-upload">
+                <img id="profile-image" src="default-avatar.png" alt="Photo de profil">
+                <span>Ajouter une photo</span>
             </label>
-        </header>
 
-        <!-- Formulaire -->
-        <form action="process.php" method="POST" enctype="multipart/form-data" class="profile-form">
-            <!-- Nom complet et localisation -->
-            <label for="name">Nom complet :</label>
-            <input type="text" id="name" name="name" placeholder="Ex : Alexandra Dupont" required>
+            <!-- Champs pour nom et ville -->
+            <div class="input-group">
+                <label for="name">📝 Nom :</label>
+                <input type="text" id="name" placeholder="Entrez votre nom">
+            </div>
+            <div class="input-group">
+                <label for="city">📍 Ville :</label>
+                <input type="text" id="city" placeholder="Entrez votre ville">
+            </div>
+        </div>
 
-            <label for="location">Localisation :</label>
-            <input type="text" id="location" name="location" placeholder="Ex : Paris, France" required>
+        <!-- Animaux acceptés -->
+        <h2>🐾 Animaux acceptés</h2>
+        <div class="row">
+            <label><input type="checkbox" id="dog" onchange="toggleWeightSelection()"> 🐶 Chien</label>
+            <label><input type="checkbox" id="cat"> 🐱 Chat</label>
+            <label><input type="checkbox" id="rabbit"> 🐇 Lapin</label>
+        </div>
+        <div id="weight-selection" class="sub-section" style="display:none;">
+            <h3>⚖️ Poids pour chiens</h3>
+            <div class="row">
+                <label><input type="checkbox"> 0-10kg</label>
+                <label><input type="checkbox"> 10-20kg</label>
+                <label><input type="checkbox"> 20-40kg</label>
+                <label><input type="checkbox"> 40-80kg</label>
+                <label><input type="checkbox"> 80kg+</label>
+            </div>
+        </div>
 
-            <!-- Avis et animaux gardés -->
-            <label for="rating">Avis :</label>
-            <input type="text" id="rating" name="rating" placeholder="Ex : 4.8 (25 avis)" required>
+        <!-- Hébergement -->
+        <h2>🏠 Hébergement</h2>
+        <div class="row">
+            <label><input type="checkbox" id="host-own" onchange="togglePriceInput('own')"> Chez moi</label>
+            <input type="number" id="price-own" class="price-input" placeholder="Prix (€)" style="display:none;">
+        </div>
+        <div class="row">
+            <label><input type="checkbox" id="host-client" onchange="togglePriceInput('client')"> Chez le propriétaire</label>
+            <input type="number" id="price-client" class="price-input" placeholder="Prix (€)" style="display:none;">
+        </div>
 
-            <label for="animals">Animaux gardés :</label>
-            <select id="animals" name="animals[]" multiple required>
-                <option value="Chien">🐶 Chien</option>
-                <option value="Chat">🐱 Chat</option>
-                <option value="Lapin">🐰 Lapin</option>
-                
+        <!-- Journée type -->
+        <h2>🕒 Journée type</h2>
+        <div class="input-group">
+            <textarea id="daily-routine" placeholder="Décrivez votre journée type ici..."></textarea>
+        </div>
+
+            <!-- Langues Parlées -->
+        <h2>🗣️ Langues parlées</h2>
+        <div class="input-group">
+            <label for="languages">Choisissez les langues :</label>
+            <select id="languages" multiple>
+                <option value="francais">🇫🇷 Français</option>
+                <option value="anglais">🇬🇧 Anglais</option>
+                <option value="espagnol">🇪🇸 Espagnol</option>
+                <option value="allemand">🇩🇪 Allemand</option>
+                <option value="italien">🇮🇹 Italien</option>
+                <option value="portugais">🇵🇹 Portugais</option>
+                <option value="chinois">🇨🇳 Chinois</option>
+                <option value="arabe">🇸🇦 Arabe</option>
             </select>
+    <div id="selected-languages" class="languages-preview"></div>
+</div>
 
-            <!-- Prix -->
-            <label for="price">Prix :</label>
-            <textarea id="price" name="price" rows="2" placeholder="Ex : 15€/jour pour garde à domicile, 20€/jour pour hébergement..." required></textarea>
+        <!-- Informations sur l’environnement -->
+        <h2>🏡 Informations sur l’environnement</h2>
+        <div class="environment">
+            <label><input type="checkbox"> 👶 Enfants présents</label>
+            <label><input type="checkbox"> 🚭 Foyer non-fumeur</label>
+            <label><input type="checkbox"> 🌳 Jardin</label>
+            <label><input type="checkbox"> 🏢 Immeuble</label>
+            <label><input type="checkbox"> 🐾 Présence d'animaux</label>
+        </div>
 
-            <!-- Poids des chiens gardés -->
-            <label for="dog-weight">Poids des chiens gardés (kg) :</label>
-            <textarea id="dog-weight" name="dog-weight" rows="2" placeholder="Ex : 0-20kg chez le client, jusqu'à 40kg chez moi..." required></textarea>
+        <!-- Compétences -->
+        <h2>🎓 Compétences</h2>
+        <div class="skills">
+            <label><input type="checkbox"> 🩺 Administration de médicaments</label>
+            <label><input type="checkbox"> 🧓 Soins aux animaux âgés</label>
+            <label><input type="checkbox"> 🚑 Premiers secours</label>
+            <label><input type="checkbox"> ✂️ Toilettage</label>
+            <label><input type="checkbox"> 🐾 Promenade</label>
+            <label><input type="checkbox"> 🎓 Éducation basique</label>
+        </div>
 
-            <!-- Expérience -->
-            <label for="experience">Expérience :</label>
-            <textarea id="experience" name="experience" rows="3" placeholder="Décrivez votre expérience avec les animaux" required></textarea>
+        <!-- Informations supplémentaires -->
+        <h2>📝 Informations supplémentaires</h2>
+        <textarea placeholder="Ajoutez des informations supplémentaires ici..."></textarea>
 
-            <!-- Langues parlées -->
-            <label for="languages">Langues parlées :</label>
-            <input type="text" id="languages" name="languages" placeholder="Ex : Français, Anglais" required>
-
-            <!-- Disponibilités -->
-            <label for="availability">Disponibilités :</label>
-            <textarea id="availability" name="availability" rows="2" placeholder="Ex : Disponible les week-ends et jours fériés" required></textarea>
-
-            <!-- Compétences avec icônes -->
-            <label>Compétences :</label>
-            <div class="skills">
-                <label>
-                    <input type="checkbox" name="skills[]" value="Administration de médicaments">
-                    💊 Administration de médicaments
-                </label>
-                <label>
-                    <input type="checkbox" name="skills[]" value="Soins aux animaux âgés">
-                    🧓 Soins aux animaux âgés
-                </label>
-                <label>
-                    <input type="checkbox" name="skills[]" value="Premiers secours pour animaux">
-                    🩺 Premiers secours pour animaux
-                </label>
-                <label>
-                    <input type="checkbox" name="skills[]" value="Toilettage">
-                    ✂️ Toilettage
-                </label>
-                <label>
-                    <input type="checkbox" name="skills[]" value="Promenade">
-                    🐾 Promenade
-                </label>
-                <label>
-                    <input type="checkbox" name="skills[]" value="Éducation basique">
-                    🎓 Éducation basique
-                </label>
-            </div>
-
-            <!-- Environnement -->
-            <label>Environnement :</label>
-            <div class="environment">
-                <label>
-                    <input type="checkbox" name="environment[]" value="Appartement avec jardin">
-                    🏡 Appartement avec jardin
-                </label>
-                <label>
-                    <input type="checkbox" name="environment[]" value="Foyer non-fumeur">
-                    🚭 Foyer non-fumeur
-                </label>
-                <label>
-                    <input type="checkbox" name="environment[]" value="Pas d'enfants à la maison">
-                    👶 Pas d’enfants à la maison
-                </label>
-            </div>
-
-            <!-- Une journée type -->
-            <label for="typical-day">Une journée type :</label>
-            <textarea id="typical-day" name="typical-day" rows="3" placeholder="Décrivez votre routine quotidienne avec les animaux gardés..." required></textarea>
-
-            <!-- Ce que le petsitter aimerait savoir -->
-            <label for="animal-info">Ce que vous aimeriez savoir sur l’animal :</label>
-            <textarea id="animal-info" name="animal-info" rows="3" placeholder="Ex : Habitudes, état de santé, comportement..." required></textarea>
-
-            <!-- Soumettre -->
-            <input type="submit" value="Créer le profil" class="submit-btn">
-        </form>
+        </div>
     </div>
 
-    <script>
-        // Aperçu de l'image uploadée
-        function previewImage(event) {
-            const reader = new FileReader();
-            reader.onload = function () {
-                const output = document.getElementById('profile-pic-preview');
-                output.src = reader.result;
-            };
-            reader.readAsDataURL(event.target.files[0]);
-        }
-    </script>
+    <script src="../css+js/script.js"></script>
 </body>
 </html>
