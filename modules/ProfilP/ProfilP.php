@@ -22,6 +22,10 @@
                 <input type="text" id="name" placeholder="Entrez votre nom">
             </div>
             <div class="input-group">
+                <label for="name">📝 Prénom :</label>
+                <input type="text" id="name" placeholder="Entrez votre prénom">
+            </div>
+            <div class="input-group">
                 <label for="city">📍 Ville :</label>
                 <input type="text" id="city" placeholder="Entrez votre ville">
             </div>
