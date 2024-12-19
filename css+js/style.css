@@ -18,6 +18,14 @@
     background-color: #EDE0C9;
     position: relative;
   }
+footer {
+    background: #333;
+    color: white;
+    text-align: center;
+    padding: 25px 0;
+    width: 100%;
+    bottom: 0;
+}
   
   header h1 {
     flex: 1;
@@ -323,8 +331,6 @@
     }
   }
 
-
-
 .container{
     display: flex;
     flex-direction: row;
@@ -494,3 +500,47 @@ input[type="submit"] {
 input[type="submit"]:hover {
     background-color: #d174b8;
 }
+
+main {
+    padding: 20px;
+}
+
+#CGU {
+    max-width: 600px;
+    margin: 0 auto;
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+#CGU2 {
+    max-width: 600px;
+    margin: 0 auto;
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.Conditions {
+    margin-bottom: 20px;
+}
+
+.Conditions h3 {
+    margin-bottom: 5px;
+    color: #3c3c3c;
+}
+
+.Conditions a {
+    color: #007BFF;
+    text-decoration: none;
+}
+
+.Conditions a:hover {
+    text-decoration: underline;
+}
+
+
+  
+  

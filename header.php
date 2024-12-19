@@ -12,6 +12,6 @@
      <a href="index.php?module=faq">FAQ</a>
      <a href="#">Nous rejoindre</a>
      <a href="#">Contactez-nous</a>
-     <a href="#">Aide</a>
+     <a href="index.php?module=cgu">CGU</a>
  </div>
 </header>
