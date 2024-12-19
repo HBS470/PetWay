@@ -118,8 +118,6 @@ public function render() {
                     </form>
                 </div>
 
-                <div class="politique"></div>
-            </div>
     <?php
 }
 }

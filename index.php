@@ -20,11 +20,17 @@
                 include_once "modules/faq/cont-faq.php";
                 $controller = new FaqController();
                 $controller -> handle();
+                break;
 
             case 'cgu' :
-                include_once "modules/CGU&ML/cont-cgu.php";
+                include_once "modules/cgu/cont-cgu.php";
                 $controller = new CguController();
                 $controller->handle();
+                break;
+            case 'contact':
+                include_once "modules/contact/cont-contact.php";
+                $controller = new ContactController();
+                $controller ->handle();
                 break;
 
             default:

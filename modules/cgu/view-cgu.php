@@ -40,7 +40,7 @@ class CguView {
 
       <div class="Conditions">
         <h3>7. Contact</h3>
-        <p>Pour toutes questions, merci de consulter la page suivante:<a href="../Contact/Petway_Support.php">Cliquez ici</a></p>
+        <p>Pour toutes questions, merci de consulter la page suivante:<a href="index.php?module=contact">Cliquez ici</a></p>
       </div>
       
     </section>

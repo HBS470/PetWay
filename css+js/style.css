@@ -435,14 +435,6 @@ hr{
     line-height: 1.8;
 }
 
-.politique{
-    display: flex;
-    align-items: flex-end;
-    height: 500px;
-    width: 100%;
-    background-color: #EDE0C9 ;
-}
-
 @media (max-width: 768px) {
     .place_menu {
         display: none;
@@ -538,6 +530,37 @@ main {
 }
 
 .Conditions a:hover {
+    text-decoration: underline;
+}
+
+main {
+    padding: 20px;
+}
+
+#contact-info {
+    max-width: 600px;
+    margin: 0 auto;
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.service {
+    margin-bottom: 20px;
+}
+
+.service h3 {
+    margin-bottom: 5px;
+    color: #3c3c3c;
+}
+
+.service a {
+    color: #007BFF;
+    text-decoration: none;
+}
+
+.service a:hover {
     text-decoration: underline;
 }
 
