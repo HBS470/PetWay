@@ -32,7 +32,6 @@
     height: 80px;
     width: auto;
     position: absolute;
-    margin-top: 60px;
     left: 10px;
     z-index: 1;
   }
@@ -323,28 +322,8 @@
         padding: 10px 15px;
     }
   }
-  
-  
-.faq-html{
-    scroll-behavior: smooth;
-    scroll-padding-top: 90px;
-    font-family: Roboto;
-}
 
 
-.titre_principal{
-    display: flex;
-    width: 100%;
-    height: 80px;
-    position: sticky;
-    top: 0;
-    justify-content: left;
-    padding-left: 2%;
-    background-color: #EDE0C9;
-    z-index: 1000;
-    color: black;
-    
-}
 
 .container{
     display: flex;
@@ -408,7 +387,7 @@
     font-size: 20px;
     line-height: 1;
     color: #e585cf;
-    margin-top: 3%;
+    margin-bottom: 10px;
 }
 
 .questions{
@@ -417,7 +396,6 @@
     align-items: LEFT;
     color: #657786;
     font-size: 19px;
-    margin-bottom: -10px;
 }
 
 .reponse{
@@ -427,6 +405,8 @@
     font-size: 17px;
     line-height: 1.8;
     margin: 0 auto;
+    margin-bottom: 10px;
+
 
 }
 

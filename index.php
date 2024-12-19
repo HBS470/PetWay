@@ -16,7 +16,10 @@
         $module = $_GET['module'];
 
         switch ($module) {
-
+            case 'faq' :
+                include_once "modules/faq/cont-faq.php";
+                $controller = new FaqController();
+                $controller -> handle();
 
             default:
                 echo 'Aucun module detecté !';

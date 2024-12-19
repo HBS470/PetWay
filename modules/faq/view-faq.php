@@ -1,17 +1,7 @@
-        <!DOCTYPE html>
-        <html lang="fr">
-        <head>
-            <meta charset="UTF-8">
-            <title>FAQ</title>
-            <link rel="stylesheet" type="text/css" href="../../css+js/style.css">
-        </head>
-        <body>
-            <div class="faq-html">
-                <div class="titre_principal">
-                    <img src="../../images/petway.png" alt="Logo de PetWay">
-                    <h1>Centre d'assistance</h1>
-                </div>
-
+<?php
+class FaqView {
+public function render() {
+?>
                 <div class="presentation">
                     <div class="titre">
                         <h1>FAQ de Petway</h1>
@@ -26,7 +16,7 @@
                             <a href="#section3">Sécurité</a>
                         </nav>
                     </div>
-
+                    <br>
                     <div class="centrer">
                         <section id="section1">
                             <div class="sous_titre">
@@ -130,5 +120,8 @@
 
                 <div class="politique"></div>
             </div>
-        </body>
-        </html>
+    <?php
+}
+}
+
+?>

@@ -1,13 +1,11 @@
-<?php	
-$db = new PDO("mysql:host=localhost;dbname=petway", "root", "");
+<?php
+class FaqController {
+    public function handle() {
 
-if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $email = htmlspecialchars(trim($_POST['email']));
-    $question = htmlspecialchars(trim($_POST['question']));
-
-    if(!empty($question)){
-        $reponse = $db->prepare("insert into faq (question) values (,$question,)");
-        $reponse->execute(array($question));
+        include_once "./modules/faq/view-faq.php";
+        $view = new FaqView();
+        $view->render();
     }
 }
+
 ?>
