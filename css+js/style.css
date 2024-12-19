@@ -1,15 +1,17 @@
-
-.faq-corps{
-    margin: 0;
+*{
+    box-sizing: border-box;
+}
+body{
     padding: 0;
-    font-family: Roboto;
+    margin: 0;
 }
 
 .faq-html{
     scroll-behavior: smooth;
     scroll-padding-top: 90px;
-    box-sizing: border-box;
+    font-family: Roboto;
 }
+
 
 .titre_principal{
     display: flex;
@@ -17,9 +19,12 @@
     height: 80px;
     position: sticky;
     top: 0;
-    background-color: white;
-    padding-left: 5%;
+    justify-content: left;
+    padding-left: 2%;
+    background-color: #b49562;
     z-index: 1000;
+    color: white;
+    
 }
 
 .container{
@@ -34,6 +39,7 @@
     height: 250px;
     justify-content: center;
     align-items: center;
+    color: white;
 }
 
 .titre{
@@ -146,4 +152,49 @@ hr{
     display: flex;
     justify-content: center;
     align-items: center;
+
+}
+
+.formulaire-faq{
+    width: 90%;
+    max-width: 600px;
+    margin: 30px auto;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    font-family: Roboto, sans-serif;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: #333;
+}
+
+input, textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+input[type="submit"] {
+    background-color: #e585cf;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    border-radius: 5px;
+    text-align: center;
+    transition: background-color 0.3s;
+}
+
+input[type="submit"]:hover {
+    background-color: #d174b8;
 }

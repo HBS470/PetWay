@@ -1,18 +1,14 @@
-<?php
-
-class FAQView {
-    public function render() {
-        ?>
         <!DOCTYPE html>
         <html lang="fr">
         <head>
             <meta charset="UTF-8">
             <title>FAQ</title>
-            <link rel="stylesheet" type="text/css" href="style.css">
+            <link rel="stylesheet" type="text/css" href="../../css+js/style.css">
         </head>
         <body>
             <div class="faq-html">
                 <div class="titre_principal">
+                    <img src="../../images/petway.png" alt="Logo de PetWay">
                     <h1>Centre d'assistance</h1>
                 </div>
 
@@ -121,14 +117,14 @@ class FAQView {
                     <h2>Vous ne trouvez pas la réponse à votre question ? Posez-la nous !</h2>
                 </div>
 
-                <div class="formulaire">
-                    <form method="post" action="traitement.php">
-                        <fieldset>
-                            <legend><h4>Question</h4></legend>
+                <div class="formulaire-faq">
+                    <form method="post" action="cont-faq.php">
+                            <label for = "mail">Votre mail</label>
+                            <input type="email" id="email" name="email" placeholder="Entrez votre email" required />
+
                             <label for="nom">Votre question : </label>
-                            <input type="text" id="nom" name="nom" required /><br>
+                            <textarea id="question" name="question" rows="6" placeholder="Rédigez votre question ici..." required></textarea>                            
                             <input type="submit">
-                        </fieldset>
                     </form>
                 </div>
 
@@ -136,7 +132,3 @@ class FAQView {
             </div>
         </body>
         </html>
-        <?php
-    }
-}
-?>
