@@ -3,7 +3,8 @@
 	<head>
 		<meta charset= "UTF-8"/>
 		<title>PetWay</title>
-		<link rel="stylesheet" href="css+js/style.css">
+		<link rel="stylesheet" href="css+js/ProfilP.css">
+        <link rel="stylesheet" href="css+js/style.css">
         <script src="css+js/script.js"></script>
 	</head>
 	<body>

@@ -147,7 +147,52 @@ footer {
     border: 1px solid #ccc;
     border-radius: 5px;
     box-sizing: border-box;
-  }
+    }
+
+/* Conteneur principal */
+.container {
+    background: #ffffff;
+    padding: 20px 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 400px;
+    box-sizing: border-box;
+    margin-top: 20px; /* Ajoute un espace supplémentaire en haut si nécessaire */
+}
+
+/* Titre */
+h1 {
+    text-align: left; /* Aligne le texte à gauche */
+    margin: 0 0 20px; /* Réduit la marge pour éviter un décalage */
+    font-size: 24px;
+    color: #333;
+}
+
+/* Formulaire */
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+/* Labels */
+label {
+    margin: 10px 0 5px;
+    font-weight: bold;
+    color: #555;
+}
+
+/* Champs de saisie */
+input, select, textarea {
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+    outline: none;
+    transition: border-color 0.3s ease;
+    resize: vertical; /* Autorise le redimensionnement vertical pour les textarea */
+}
   
   .clear-button {
     position: absolute;
@@ -564,6 +609,52 @@ main {
     text-decoration: underline;
 }
 
+/* Champs focus */
+input:focus, select:focus, textarea:focus {
+    border-color: #007bff;
+}
 
-  
-  
+/* Bouton de soumission */
+.submit-btn {
+    background-color: #007bff;
+    color: #ffffff;
+    font-size: 16px;
+    font-weight: bold;
+    padding: 10px;
+    margin-top: 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+/* Bouton hover */
+.submit-btn:hover {
+    background-color: #0056b3;
+}
+
+/* Texte d'aide */
+small {
+    font-size: 12px;
+    color: #777;
+}
+
+/* Espacement entre les champs */
+input:not(.submit-btn), select, textarea, small {
+    margin-bottom: 15px;
+}
+
+/* Media queries pour écrans plus petits */
+@media (max-width: 600px) {
+    .container {
+        padding: 15px; /* Réduit la marge interne */
+    }
+
+    h1 {
+        font-size: 20px; /* Réduit la taille du titre */
+    }
+
+    input, select, textarea {
+        font-size: 14px; /* Ajuste la taille des champs */
+    }
+}
