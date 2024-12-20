@@ -1,4 +1,4 @@
-<?php if (!defined('MY_APP')) { exit('Accès non autorisé'); }
+<?php //if (!defined('MY_APP')) { exit('Accès non autorisé'); }
 
 class ConnexionView {
     public function render() {
@@ -9,8 +9,9 @@ class ConnexionView {
         $activeTab = isset($_SESSION['active_tab']) ? $_SESSION['active_tab'] : 'login';
         unset($_SESSION['active_tab']);
         ?>
+            <br>
         <!-- Trigger button -->
-        <button onclick="openPopup()" style="margin: 20px; padding: 10px 20px;">Open Login/Signup</button>
+        <button onclick="openPopup()" class="bouton-rose">Connectez vous </button>
 
         <!-- Overlay and Popup -->
         <div class="overlay" id="authPopup">

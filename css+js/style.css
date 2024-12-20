@@ -3,6 +3,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: "Roboto Light", sans-serif;
   }
   
   body {
@@ -872,7 +873,7 @@ input[type="checkbox"] {
 
 .popup .tab.active {
     color: #333;
-    border-bottom: 3px solid #4CAF50;
+    border-bottom: 3px solid #b8ad9a;
 }
 
 .popup .form-container {
@@ -893,8 +894,8 @@ input[type="checkbox"] {
 }
 
 .popup button {
-    background: #4CAF50;
-    color: white;
+    background: #EDE0C9;
+    color: black;
     border: none;
     padding: 10px 20px;
     border-radius: 4px;
@@ -909,7 +910,7 @@ input[type="checkbox"] {
 }
 
 .popup button:hover {
-    background: #45a049;
+    background: #b8ad9a;
 }
 
 .popup .close {
@@ -924,4 +925,22 @@ input[type="checkbox"] {
 
 .form-width {
     width: 95%;
+}
+
+.bouton-rose {
+    padding: 5px;
+    cursor: pointer;
+    border-bottom: 1px #085294 solid;
+    border-right: 1px #085294 solid;
+    border-top: 1px #1e73be solid;
+    border-left: 1px #1e73be solid;
+    background-color: pink;
+    border: none;
+    height: 29px;
+    overflow: hidden;
+    min-width: 150px;
+    color: black;
+    border-radius: 10px;
+    margin-bottom: 10px;
+    margin-left : 45%;
 }

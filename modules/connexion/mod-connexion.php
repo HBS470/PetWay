@@ -1,7 +1,7 @@
 <?php
-if (!defined('MY_APP')) {
-    exit('Accès non autorisé');
-}
+//if (!defined('MY_APP')) {
+//    exit('Accès non autorisé');
+//}
 
 require_once './modules/connexionBD/connexionBD.php';
 
