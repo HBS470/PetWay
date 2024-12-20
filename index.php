@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="fr">
 	<head>
 		<meta charset= "UTF-8"/>
 		<title>PetWay</title>
@@ -41,11 +41,28 @@
                 $controller = new ContactController();
                 $controller -> handle();
                 break;
+            case 'inscription':
+                include_once "modules/inscription/cont-inscription.php";
+                $controller = new InscriptionController();
+                $controller->handle();
+                break;
+
+            case 'connexion':
+                include_once "modules/connexion/cont-connexion.php";
+                $controller = new ConnexionController();
+                $controller->handle();
+                break;
+            case 'deconnexion':
+                include_once "modules/deconnexion/cont-deconnexion.php";
+                $controller = new DeconnexionController();
+                $controller->handle();
+                break;
 
             default:
                 echo 'Aucun module detecté !';
                 break;
         }
+
     }
     else {
         include_once "accueil.php";
@@ -59,8 +76,4 @@
     ?>
 
     </body>
-
-    <footer>
-        
-    </footer>
 </html>
