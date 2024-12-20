@@ -1,3 +1,6 @@
+<div class="content">
+    <!-- Tout le contenu principal ici -->
+</div>
 <footer>
-    <p>&copy; 2024 Petway. Tout droits réservés..</p>
+    © 2024 PetWay. Tous droits réservés.
 </footer>

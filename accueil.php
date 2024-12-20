@@ -9,3 +9,6 @@
  <button class="search-icon">🔍</button>
  <button class="add-button">+</button>
 </div>
+<div class="bloc_table_white">
+    Bienvenue sur Petway !
+</div>

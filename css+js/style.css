@@ -19,14 +19,19 @@
     background-color: #EDE0C9;
     position: relative;
   }
+.content {
+    min-height: calc(100vh - 100px); /* Hauteur de la fenêtre - hauteur du footer */
+    padding-bottom: 25px;
+}
+
 footer {
     background: #333;
     color: white;
     text-align: center;
     padding: 25px 0;
     width: 100%;
-    bottom: 0;
 }
+
   
   header h1 {
     flex: 1;
@@ -943,4 +948,14 @@ input[type="checkbox"] {
     border-radius: 10px;
     margin-bottom: 10px;
     margin-left : 45%;
+}
+
+.bloc_table_white {
+    padding: 20px;
+    background-color: #EDE0C9;
+    border-radius: 20px;
+    border: 1px solid #DFE0EB;
+    margin: 2px;
+    border-spacing: 0px;
+    text-align: center;
 }

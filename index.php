@@ -46,7 +46,6 @@
                 $controller = new InscriptionController();
                 $controller->handle();
                 break;
-
             case 'connexion':
                 include_once "modules/connexion/cont-connexion.php";
                 $controller = new ConnexionController();
