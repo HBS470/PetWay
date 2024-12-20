@@ -3,7 +3,6 @@
 	<head>
 		<meta charset= "UTF-8"/>
 		<title>PetWay</title>
-		<link rel="stylesheet" href="css+js/ProfilP.css">
         <link rel="stylesheet" href="css+js/style.css">
         <script src="css+js/script.js"></script>
 	</head>
@@ -17,21 +16,30 @@
         $module = $_GET['module'];
 
         switch ($module) {
+            case 'profil' :
+                include_once "modules/profil/cont-profil.php";
+                $controller = new ProfilController();
+                $controller -> handle();
+                break;
+            case 'formulaireanimal' :
+                include_once "modules/formulaireanimal/cont-formulaireanimal.php";
+                $controller = new FormulaireAnmialController();
+                $controller -> handle();
+                break;
             case 'faq' :
                 include_once "modules/faq/cont-faq.php";
                 $controller = new FaqController();
                 $controller -> handle();
                 break;
-
             case 'cgu' :
                 include_once "modules/cgu/cont-cgu.php";
                 $controller = new CguController();
-                $controller->handle();
+                $controller -> handle();
                 break;
             case 'contact':
                 include_once "modules/contact/cont-contact.php";
                 $controller = new ContactController();
-                $controller ->handle();
+                $controller -> handle();
                 break;
 
             default:
