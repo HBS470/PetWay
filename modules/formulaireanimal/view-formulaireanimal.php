@@ -2,7 +2,7 @@
 class FormulaireAnimalView {
 public function render () {
 ?>
-    <div class="container">
+    <div class="containeranimal">
         <h1>Ajouter un Animal</h1>
         <form action="process.php" method="POST" enctype="multipart/form-data">
             
