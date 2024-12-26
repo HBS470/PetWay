@@ -2,9 +2,9 @@
 
 
 
-if (!defined('MY_APP')) {
-    exit('Accès non autorisé');
-}
+//if (!defined('MY_APP')) {
+//    exit('Accès non autorisé');
+//}
 
 require_once './modules/inscription/mod-inscription.php';
 require_once './modules/connexion/view-connexion.php';

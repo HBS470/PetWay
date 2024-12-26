@@ -14,9 +14,9 @@ class ConnexionModel extends ConnexionBD {
         $user = $stmt->fetch(PDO::FETCH_ASSOC);
 
         if ($user && password_verify($password, $user['passw_hash'])) {
-            if ($this->checkCSRFToken()){
+//            if ($this->checkCSRFToken()){
                 return true;
-            }
+//            }
         }
 
         return false;

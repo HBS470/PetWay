@@ -6,20 +6,25 @@
     font-family: "Roboto Light", sans-serif;
   }
   
-  body {
+body {
     background-color:#FFEEFB; /* Définit l'arrière-plan de la page en rose */
   }
   
-  /* Styles pour le header */
-  header {
+/* Styles pour le header */
+header {
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 10px 20px;
     background-color: #EDE0C9;
     position: relative;
-  }
-.content {
+    }
+
+.logo-container {
+    display: flex;
+    align-items: center;
+}
+.contentfooter {
     min-height: calc(100vh - 100px); /* Hauteur de la fenêtre - hauteur du footer */
     padding-bottom: 25px;
 }
@@ -32,73 +37,36 @@ footer {
     width: 100%;
 }
 
-  
-  header h1 {
-    flex: 1;
-    margin-top: 10px;
+header h1 {
     text-align: center;
-    font-size: 2.5rem;
-    font-family: Arial, sans-serif;
     color: black;
   }
   
-  .logo {
+.logo {
     height: 80px;
     width: auto;
     position: absolute;
     left: 10px;
     z-index: 1;
   }
-  
-  /* Menu hamburger */
-  .menu-burger {
+
+.menu {
     display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-    height: 24px;
-    width: 30px;
-    cursor: pointer;
-    z-index: 2;
-  }
-  
-  .menu-burger .line {
-    height: 3px;
-    width: 100%;
-    background-color: #333;
-    border-radius: 2px;
-  }
-  
-  /* Menu déroulant */
-  .menu {
-    display: none;
-    position: absolute;
-    top: 60px;
-    right: 20px;
-    background-color: #fff;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-    z-index: 1;
-  }
-  
-  .menu a {
-    display: block;
-    padding: 10px 20px;
-    color: #333;
+    gap: 20px; /* Espacement entre les onglets */
+}
+
+.menu a {
     text-decoration: none;
-    font-family: Arial, sans-serif;
-    font-size: 16px;
-  }
-  
-  .menu a:hover {
-    background-color: #EDE0C9;
-    color: #000;
-  }
-  
-  /* Afficher le menu quand actif */
-  .menu.active {
-    display: block;
-  }
+    font-size: 1.1rem;
+    color: black;
+    padding: 5px 10px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.menu a:hover {
+    background-color: #D1BFA7; /* Couleur de survol */
+}
   
   /* Slider */
   .slider {
@@ -285,11 +253,7 @@ input, select, textarea {
     .logo {
         height: 60px;
     }
-  
-    .menu-burger {
-        width: 25px;
-        height: 20px;
-    }
+
   
     .menu a {
         font-size: 14px;
@@ -946,8 +910,6 @@ input[type="checkbox"] {
     min-width: 150px;
     color: black;
     border-radius: 10px;
-    margin-bottom: 10px;
-    margin-left : 45%;
 }
 
 .bloc_table_white {

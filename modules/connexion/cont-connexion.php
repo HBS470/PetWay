@@ -42,8 +42,7 @@ class ConnexionController
                 session_regenerate_id(true);
 
                 $_SESSION['user'] = $pseudo;
-                $_SESSION['role'] = $model->getRole($pseudo);
-
+                echo 'Connexion réussi !';
                 header('Location: index.php');
                 exit;
             } else {

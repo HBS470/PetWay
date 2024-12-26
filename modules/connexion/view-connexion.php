@@ -9,18 +9,14 @@ class ConnexionView {
         $activeTab = isset($_SESSION['active_tab']) ? $_SESSION['active_tab'] : 'login';
         unset($_SESSION['active_tab']);
         ?>
-            <br>
-        <!-- Trigger button -->
-        <button onclick="openPopup()" class="bouton-rose">Connectez vous </button>
-
         <!-- Overlay and Popup -->
         <div class="overlay" id="authPopup">
             <div class="popup">
                 <button class="close" onclick="closePopup()" style="color: black">&times;</button>
-                <?php if (!empty($error_message)) : ?>
+                <?php if (!empty($error_message)) :?>
                     <div class="error-message"><?= htmlspecialchars($error_message); ?></div>
-                    <div class="activetab" style="display:none"><?= htmlspecialchars($activeTab); ?></div>
                 <?php endif; ?>
+                <div class="activetab" style="display:none"><?= htmlspecialchars($activeTab); ?></div>
                 <div class="tabs">
                     <div class="tab active" onclick="showForm('loginForm')">Connexion</div>
                     <div class="tab" onclick="showForm('signupForm')">Inscription</div>
