@@ -13,7 +13,7 @@
 <?php
     if (isset($_SESSION['user'])) {
         echo '<a href="index.php?module=profil">Profil</a>';
-        echo '<a href="index.php?module=deconnexion">Déconnexion</a>';
+        echo '<a href="index.php?module=deconnexion" style="background-color: red">Déconnexion</a>';
     }
     else {
         echo '<button onclick = "openPopup()" class="bouton-rose">Connexion</button>';

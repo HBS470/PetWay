@@ -24,16 +24,15 @@ class ConnexionController
             if (empty($pseudo) && empty($password)) {
                 $_SESSION['error_message'] = 'Veuillez remplir tous les champs !';
                 $view->render();
-                return;
-
+                exit;
             } elseif (empty($password)) {
                 $_SESSION['error_message'] = 'Veuillez saisir un mot de passe !';
                 $view->render();
-                return;
+                exit;
             } elseif(empty($pseudo)) {
                 $_SESSION['error_message'] = 'Veuillez saisir un pseudo !';
                 $view->render();
-                return;
+                exit;
             }
 
             if ($model->checkCredentials($pseudo, $password)) {
@@ -42,14 +41,14 @@ class ConnexionController
                 session_regenerate_id(true);
 
                 $_SESSION['user'] = $pseudo;
-                echo 'Connexion réussi !';
-                header('Location: index.php');
-                exit;
+                $_SESSION['success_message'] =  'Connexion réussie !';
+                $view->render();
+                header('Refresh:1; url=index.php');
             } else {
                 $_SESSION['error_message'] = 'Identifiants incorrects !';
                 $view->render();
-                return;
             }
+            exit;
         } else {
             $view->render();
         }

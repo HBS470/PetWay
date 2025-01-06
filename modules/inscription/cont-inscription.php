@@ -79,13 +79,13 @@ class InscriptionController {
             $passwordHash = password_hash($password, PASSWORD_DEFAULT);
             if ($model->registerUser($nom,$prenom,$pseudo, $email, $passwordHash,$ville,$photo)) {
                 $_SESSION['success_message'] = 'Inscription réussie. Vous pouvez maintenant vous connecter.';
-                header('Location: index.php?module=connexion');
-                exit;
+                $view->render();
+                header('Refresh:1; url=index.php');
             } else {
                 $_SESSION['error_message'] = 'Une erreur est survenue lors de l\'inscription.';
                 $view->render();
-                return;
             }
+            exit;
         } else {
             $view->render();
         }

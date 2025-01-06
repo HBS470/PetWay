@@ -73,11 +73,6 @@ function openPopup() {
                 const popup = document.getElementById('authPopup');
                 popup.classList.add('active');
 
-                // Si une erreur est présente, la popup reste ouverte
-                const errorMessage = document.querySelector('.error-message');
-                if (errorMessage) {
-                    popup.classList.add('active');
-                }
             })
             .catch(err => console.error('Erreur lors du chargement de la popup:', err));
     } else {
@@ -109,16 +104,8 @@ function showForm(formId) {
     document.querySelector(`.tab[onclick="showForm('${formId}')"]`).classList.add('active');
 }
 
-// Garder la popup ouverte si elle contient un message d'erreur
-window.onload = function () {
-    const errorMessage= document.querySelector('.error-message');
-    if (errorMessage) {
-        document.getElementById('authPopup').classList.add('active');
-    }
-    const activeTab = document.querySelector('.activetab')
-    if (activeTab === 'signup') {
-        showForm('signupForm');
-    } else {
-        showForm('loginForm');
-    }
-};
+const errorMessage = document.querySelector('.error-message');
+if (!errorMessage || errorMessage.textContent.trim() === '') {
+    document.getElementById('authPopup').classList.remove('active');
+}
+
