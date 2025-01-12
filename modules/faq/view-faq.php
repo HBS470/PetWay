@@ -1,3 +1,11 @@
+<?php
+
+class FAQView {
+    public function render() {
+      $error_message = isset($_SESSION['error_message']) ? $_SESSION['error_message'] : '';
+        unset($_SESSION['error_message']);
+        ?>
+
         <!DOCTYPE html>
         <html lang="fr">
         <head>
@@ -118,7 +126,7 @@
                 </div>
 
                 <div class="formulaire-faq">
-                    <form method="post" action="cont-faq.php">
+                    <form method="post" action="/PetWay/modules/faq/cont-faq.php">
                             <label for = "mail">Votre mail</label>
                             <input type="email" id="email" name="email" placeholder="Entrez votre email" required />
 
@@ -132,3 +140,7 @@
             </div>
         </body>
         </html>
+        <?php
+    }
+}
+?>
