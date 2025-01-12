@@ -2,7 +2,9 @@
 //if (!defined('MY_APP')) {
 //    exit('Accès non authorisé');
 //}
+
 require_once __DIR__ . '/../connexionBD/connexionBD.php';
+
 
 class FAQModel extends ConnexionBD
 {

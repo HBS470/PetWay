@@ -11,6 +11,7 @@ error_reporting(E_ALL);
 require_once 'mod-faq.php';
 require_once 'view-faq.php';
 
+
 class FAQController {
     
     public static function handle() {
@@ -56,5 +57,6 @@ class FAQController {
         }
     }
 }
+
 
 ?>
