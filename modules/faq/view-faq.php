@@ -1,3 +1,11 @@
+<?php
+
+class FAQView {
+    public function render() {
+      $error_message = isset($_SESSION['error_message']) ? $_SESSION['error_message'] : '';
+        unset($_SESSION['error_message']);
+        ?>
+
         <!DOCTYPE html>
         <html lang="fr">
         <head>
@@ -132,3 +140,7 @@
             </div>
         </body>
         </html>
+        <?php
+    }
+}
+?>
