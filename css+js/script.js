@@ -99,3 +99,7 @@ window.onload = function () {
         showForm('loginForm');
     }
 };
+
+function showPopup() {
+    alert("Merci pour votre question !");
+}

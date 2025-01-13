@@ -16,8 +16,6 @@ class FAQView {
         <body>
             <div class="faq-html">
                 <div class="titre_principal">
-                    <img src="../../images/petway.png" alt="Logo de PetWay">
-                    <h1>Centre d'assistance</h1>
                 </div>
 
                 <div class="presentation">
@@ -38,7 +36,7 @@ class FAQView {
                     <div class="centrer">
                         <section id="section1">
                             <div class="sous_titre">
-                                <h2>En savoir plus sur Petway</h2>
+                                <h3>En savoir plus sur Petway</h3>
                             </div>
                             <div class="questions">
                                 <h3>Qu'est ce que Petway ?</h3>
@@ -67,7 +65,7 @@ class FAQView {
 
                         <section id="section2">
                             <div class="sous_titre">
-                                <h2>Réservation</h2>
+                                <h3>Réservation</h3>
                             </div>
                             <div class="questions">
                                 <h3>Comment contacter un pet sitter ou un promeneur de chiens ?</h3>
@@ -87,7 +85,7 @@ class FAQView {
 
                         <section id="section3">
                             <div class="sous_titre">
-                                <h2>Sécurité</h2>
+                                <h3>Sécurité</h3>
                             </div>
                             <div class="questions">
                                 <h3>Que fait Petway en matière de sécurité ?</h3>
@@ -126,7 +124,7 @@ class FAQView {
                 </div>
 
                 <div class="formulaire-faq">
-                    <form method="post" action="/PetWay/modules/faq/cont-faq.php">
+                    <form method="post" action="index.php?module=faq" onsubmit="return showPopup()">
                             <label for = "mail">Votre mail</label>
                             <input type="email" id="email" name="email" placeholder="Entrez votre email" required />
 
@@ -136,8 +134,8 @@ class FAQView {
                     </form>
                 </div>
 
-                <div class="politique"></div>
-            </div>
+                <script src="../../css+js/script.js"></script>
+
         </body>
         </html>
         <?php

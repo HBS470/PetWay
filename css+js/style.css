@@ -19,10 +19,7 @@
     background-color: #EDE0C9;
     position: relative;
   }
-.content {
-    min-height: calc(100vh - 100px); /* Hauteur de la fenêtre - hauteur du footer */
-    padding-bottom: 25px;
-}
+
 
 footer {
     background: #333;
@@ -428,6 +425,10 @@ input, select, textarea {
     flex-direction: row;
     min-height: 100vh;
 }
+
+.faq-html{
+    background-color: white;
+}
 .presentation{
     display: flex;
     background-color:#FFEEFB;
@@ -441,15 +442,13 @@ input, select, textarea {
     display: flex;
     justify-content: center;
     align-items: center;
-    font-size: 2rem;
-    font-weight: 700;
     letter-spacing: -.025rem;
     color: black;
 }
 
 
 .menu-faq{
-    width: 200px;
+    width: 100%;
     padding: 10px 0;
     top:50px;
 }
@@ -473,7 +472,7 @@ input, select, textarea {
     padding-top: 50px;
     height: 100%;
     position: sticky;
-    top: 50px;
+    top: 10px;
     overflow-y: auto;
     line-height: 1.8;
 }
@@ -482,10 +481,11 @@ input, select, textarea {
     display: flex;
     justify-content: left;
     align-items: center;
-    font-size: 20px;
+    font-size: 30px;
     line-height: 1;
     color: #e585cf;
-    margin-bottom: 10px;
+    margin-bottom: 20px;
+    margin-top: 20px;
 }
 
 .questions{
@@ -494,6 +494,8 @@ input, select, textarea {
     align-items: LEFT;
     color: #657786;
     font-size: 19px;
+    margin-top: 10px;
+    margin-bottom: 20px;
 }
 
 .reponse{
