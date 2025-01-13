@@ -67,7 +67,15 @@ CREATE TABLE animal (
                         taille FLOAT,
                         bio TEXT,
                         vaccin BOOLEAN,
-                        photo VARCHAR(255)
+                        photo VARCHAR(255),
+                        frequence VARCHAR(255),
+                        quantite VARCHAR(255),
+                        type VARCHAR(255),
+                        maladies VARCHAR(255),
+                        Habitudes VARCHAR(255),
+                        Caractere VARCHAR(255),
+                        horaires VARCHAR(255),
+                        instructions VARCHAR(255)
 );
 
 -- Table type_animal (1)
