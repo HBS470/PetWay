@@ -28,6 +28,17 @@ class InscriptionModel extends ConnexionBD
             $stmt->bindParam(':passw_hash', $passwordHash);
             $stmt->bindParam(':ville', $ville);
             $stmt->bindParam(':photo', $photo);
+            $stmt->execute();
+            return self::$bdd -> lastInsertId();
+//        }
+
+    }
+    public function registerRole($iduser,$role)
+    {
+//        if ($this->checkCSRFToken()) {
+            $stmt = self::$bdd->prepare("INSERT INTO a_le_droit (id_utilisateur, id_droit) VALUES (:iduser, (SELECT id_droit FROM droit WHERE nom = :role));");
+            $stmt->bindParam(':iduser', $iduser);
+            $stmt->bindParam(':role', $role);
             return $stmt->execute();
 //        }
 
