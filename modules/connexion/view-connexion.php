@@ -2,32 +2,29 @@
 
 class ConnexionView {
     public function render() {
-
         // Initialisation de la variable d'erreur
         $error_message = isset($_SESSION['error_message']) ? $_SESSION['error_message'] : '';
         unset($_SESSION['error_message']);
         $activeTab = isset($_SESSION['active_tab']) ? $_SESSION['active_tab'] : 'login';
         unset($_SESSION['active_tab']);
-        ?>
-            <br>
-        <!-- Trigger button -->
-        <button onclick="openPopup()" class="bouton-rose">Connectez vous </button>
+        $sucess_message = isset($_SESSION['success_message']) ? $_SESSION['success_message'] : '';
 
+        ?>
         <!-- Overlay and Popup -->
-        <div class="overlay" id="authPopup">
+        <div class="overlay <?= !empty($error_message) ? 'active' : ''; ?>" id="authPopup">
             <div class="popup">
                 <button class="close" onclick="closePopup()" style="color: black">&times;</button>
-                <?php if (!empty($error_message)) : ?>
+                <?php if (!empty($error_message)) :?>
                     <div class="error-message"><?= htmlspecialchars($error_message); ?></div>
-                    <div class="activetab" style="display:none"><?= htmlspecialchars($activeTab); ?></div>
                 <?php endif; ?>
+                <div class="activetab" style="display:none"><?= htmlspecialchars($activeTab); ?></div>
                 <div class="tabs">
-                    <div class="tab active" onclick="showForm('loginForm')">Connexion</div>
-                    <div class="tab" onclick="showForm('signupForm')">Inscription</div>
+                    <div class="tab <?= $activeTab === 'login' ? 'active' : ''; ?>" onclick="showForm('loginForm')">Connexion</div>
+                    <div class="tab <?= $activeTab === 'signup' ? 'active' : ''; ?>" onclick="showForm('signupForm')">Inscription</div>
                 </div>
 
                 <!-- Login Form -->
-                <div class="form-container active" id="loginForm">
+                <div class="form-container <?= $activeTab === 'login' ? 'active' : ''; ?>" id="loginForm">
                     <h2>Connexion</h2>
                     <form class="form-width" action="index.php?module=connexion" method="post">
                         <input type="hidden" name="form_type" value="login">
@@ -38,7 +35,7 @@ class ConnexionView {
                 </div>
 
                 <!-- Signup Form -->
-                <div class="form-container" id="signupForm">
+                <div class="form-container <?= $activeTab === 'signup' ? 'active' : ''; ?>" id="signupForm">
                     <h2>Inscription</h2>
                     <form class="form-width" action="index.php?module=inscription" method="post">
                         <input type="hidden" name="form_type" value="signup">
@@ -49,11 +46,19 @@ class ConnexionView {
                         <input type="text" name="ville" placeholder="Ville">
                         <input type="password" name="password" placeholder="Mot de passe">
                         <input type="password" name="confirm_password" placeholder="Confirmer mot de passe">
+                        <select name="role" id="role">
+                            <option value="proprio">Propriétaire d'animal</option>
+                            <option value="petsitter">Petsitter</option>
+                        </select>
                         <input type="file" name="photo" placeholder="Photo">
                         <button type="submit">S'inscrire</button>
                     </form>
                 </div>
             </div>
+        </div>
+        <br>
+        <div class="bloc_table_white">
+            <?php  echo $sucess_message ?>
         </div>
 
         <?php

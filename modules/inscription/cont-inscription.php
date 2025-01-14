@@ -2,9 +2,9 @@
 
 
 
-if (!defined('MY_APP')) {
-    exit('Accès non autorisé');
-}
+//if (!defined('MY_APP')) {
+//    exit('Accès non autorisé');
+//}
 
 require_once './modules/inscription/mod-inscription.php';
 require_once './modules/connexion/view-connexion.php';
@@ -21,6 +21,7 @@ class InscriptionController {
             $email = $_POST['email'] ?? '';
             $password = $_POST['password'] ?? '';
             $confirm_password = $_POST['confirm_password'] ?? '';
+            $role = $_POST['role'] ?? '';
             $ville = $_POST['ville'] ?? '';
             $photo = $_POST['photo'] ?? '';
             $_SESSION['active_tab'] = 'signup';
@@ -77,15 +78,16 @@ class InscriptionController {
             }
 
             $passwordHash = password_hash($password, PASSWORD_DEFAULT);
-            if ($model->registerUser($nom,$prenom,$pseudo, $email, $passwordHash,$ville,$photo)) {
+            $id = $model->registerUser($nom,$prenom,$pseudo, $email, $passwordHash,$ville,$photo);
+            if ($model->registerRole($id,$role)) {
                 $_SESSION['success_message'] = 'Inscription réussie. Vous pouvez maintenant vous connecter.';
-                header('Location: index.php?module=connexion');
-                exit;
+                $view->render();
+                header('Refresh:1; url=index.php');
             } else {
                 $_SESSION['error_message'] = 'Une erreur est survenue lors de l\'inscription.';
                 $view->render();
-                return;
             }
+            exit;
         } else {
             $view->render();
         }

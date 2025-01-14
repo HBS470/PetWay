@@ -1,9 +1,5 @@
 <?php
 
-if (!defined('MY_APP')) {
-    exit('Accès non authorisé');
-}
-
 class InscriptionView {
     public function render() {
         $error_message = isset($_SESSION['error_message']) ? $_SESSION['error_message'] : '';
