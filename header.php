@@ -11,8 +11,12 @@
         <a href="#">Contactez-nous</a>
         <a href="index.php?module=cgu">CGU</a>
 <?php
-    if (isset($_SESSION['user'])) {
+    if (isset($_SESSION['user']) && $_SESSION['role'] = 'Petsitter') {
         echo '<a href="index.php?module=profil">Profil</a>';
+        echo '<a href="index.php?module=deconnexion" style="background-color: red">Déconnexion</a>';
+    }
+    elseif (isset($_SESSION['user']) && $_SESSION['role'] = 'Proprio') {
+        echo '<a href="index.php?module=formulaireanimal">Profile</a>';
         echo '<a href="index.php?module=deconnexion" style="background-color: red">Déconnexion</a>';
     }
     else {

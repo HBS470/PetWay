@@ -1,4 +1,4 @@
-<div class="content">
+<div class="contentfooter">
     <!-- Tout le contenu principal ici -->
 </div>
 <footer>

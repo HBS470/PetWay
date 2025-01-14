@@ -56,6 +56,11 @@
                 $controller = new DeconnexionController();
                 $controller->handle();
                 break;
+            case 'recherche' :
+                include_once "modules/recherche/cont-recherche.php";
+                $controller = new RechercheController();
+                $controller->handle();
+                break;
 
             default:
                 echo 'Aucun module detecté !';
