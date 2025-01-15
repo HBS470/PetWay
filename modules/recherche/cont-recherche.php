@@ -25,11 +25,25 @@ class RechercheController {
             else {
                 $serviceType = 'garde';
             }
-
+            switch ($_POST['taille_chien']) {
+                case 'petit' :
+                    $tailleDuChien = 7;
+                    break;
+                case 'moyen' :
+                    $tailleDuChien = 14 ;
+                    break;
+                case 'grand' :
+                    $tailleDuChien = 45;
+                    break;
+                case 'geant' :
+                    $tailleDuChien = 50 ;
+                    break;
+                default :
+                    break;
+            }
             $adresse = $_POST['adresse'] ?? '';
             $arrivee = $_POST['arrivee'] ?? '';
             $depart = $_POST['depart'] ?? '';
-            $tailleDuChien = $_POST['taille_chien'] ?? '';
 
             var_dump($serviceType);
             var_dump($tailleDuChien);

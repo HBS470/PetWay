@@ -9,7 +9,9 @@
 	<body>
 	<?php
     session_start();
-
+    require_once  'PHPMailer/PHPMailer-master/src/Exception.php';
+    require_once  'PHPMailer/PHPMailer-master/src/PHPMailer.php';
+    require_once  'PHPMailer/PHPMailer-master/src/SMTP.php';
     include_once "header.php";
 
     if (isset($_GET['module'])) {
@@ -61,7 +63,16 @@
                 $controller = new RechercheController();
                 $controller->handle();
                 break;
-
+            case 'motdepasseoublie' :
+                include_once "modules/motdepasseoublie/cont-motdepasseoublie.php";
+                $controller = new MotDePasseOublieController();
+                $controller->handle();
+                break;
+            case 'reinitialisation' :
+                include_once "modules/reinitialisation/cont-reinitialisation.php";
+                $controller = new ReinitialisationController();
+                $controller->handle();
+                break;
             default:
                 echo 'Aucun module detecté !';
                 break;

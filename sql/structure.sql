@@ -14,6 +14,7 @@ DROP TABLE IF EXISTS envoyer;
 DROP TABLE IF EXISTS avis;
 DROP TABLE IF EXISTS cgu;
 DROP TABLE IF EXISTS faq;
+DROP TABLE IF EXISTS password_resets;
 
 -- Table utilisateur (1)
 CREATE TABLE utilisateur (
@@ -161,4 +162,13 @@ CREATE TABLE faq (
 CREATE TABLE cgu (
                      id_cgu INT PRIMARY KEY AUTO_INCREMENT,
                      nom VARCHAR(255)
+);
+
+CREATE TABLE `password_resets` (
+                                                 `id` int NOT NULL AUTO_INCREMENT,
+                                                 `email` varchar(255) NOT NULL,
+                                                 `token` varchar(255) NOT NULL,
+                                                 `created_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
+                                                 `expires_at` timestamp GENERATED ALWAYS AS (created_at + INTERVAL 1 HOUR) STORED,
+                                                 PRIMARY KEY (`id`)
 );

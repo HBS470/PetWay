@@ -64,10 +64,6 @@
 </div>
 
 
-<!--<div class="bloc_table_white">-->
-<!--    Bienvenue sur Petway !-->
-<!--</div>-->
-
 <script>
     function toggleActiveButton(selector) {
         return function(event) {
@@ -94,6 +90,6 @@
                 document.getElementById('taille_chien_input').value = event.target.id;
             });
         });
-    });
+        });
 
 </script>

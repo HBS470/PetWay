@@ -31,6 +31,8 @@ footer {
     text-align: center;
     padding: 25px 0;
     width: 100%;
+    position: relative;
+    bottom: 0;
 
 }
 
@@ -859,7 +861,7 @@ input[type="checkbox"] {
     font-size: 16px;
 }
 
-.popup button {
+.popup button, #bouton-envoyer {
     background: #EDE0C9;
     color: black;
     border: none;
@@ -1112,7 +1114,7 @@ input[type="checkbox"] {
 }
 
 .cardrecherche .image {
-    height: 150px;
+    height: 100px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -1120,7 +1122,6 @@ input[type="checkbox"] {
     overflow: hidden;
     margin: 10px auto;
     width: 100px;
-    height: 100px;
 }
 
 .cardrecherche .image img {
@@ -1138,5 +1139,11 @@ input[type="checkbox"] {
 .cardrecherche .price {
     font-weight: bold;
     color: #ff6b6b;
+    margin-top: 10px;
+}
+
+.forgot-password{
+    text-decoration: none;
+    color: #1e4bd8;
     margin-top: 10px;
 }
