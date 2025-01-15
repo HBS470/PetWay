@@ -158,7 +158,9 @@ CREATE TABLE faq (
 );
 
 -- Table CGU (1)
-CREATE TABLE cgu (
-                     id_cgu INT PRIMARY KEY AUTO_INCREMENT,
-                     nom VARCHAR(255)
-);
+CREATE TABLE `cgu` (
+  `id_cgu` int(11) PRIMARY KEY AUTO_INCREMENT,
+  `titre` varchar(255) DEFAULT NULL,
+  `nom` varchar(255) DEFAULT NULL,
+  `type` int(11) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;

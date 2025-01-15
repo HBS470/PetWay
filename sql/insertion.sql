@@ -104,7 +104,17 @@ VALUES
 ('Quels sont les modes de paiement ?', 'Nous acceptons les paiements par carte de crédit et PayPal.');
 
 -- Insertion de données dans la table CGU
-INSERT INTO cgu (nom)
-VALUES 
-('Conditions Générales d Utilisation 2024');
+INSERT INTO `cgu` (`id_cgu`, `titre`, `nom`, `type`) VALUES
+(1, '1. Présentation', 'Bienvenue sur Petway ! En utilisant notre plateforme, vous acceptez les présentes conditions générales d\'utilisation.\r\n\r\n', 0),
+(2, '2. Objets du site', 'Notre site met en relation des particuliers cherchant des services de garde d\'animaux avec des petsitters.', 0),
+(3, '3. Présentation', 'Utilisateurs: Vous êtes responsable des informations que vous fournissez sur le site.\r\nSite: Nous fournissons la plateforme mais ne garantissons pas la qualité des services rendus par les petsitters.', 0),
+(4, '4. Propriété intellectuelle', 'Tous les contenus du site (textes, images, logos) sont protégés par les lois sur la propriété intellectuelle. Toute reproduction est interdite sans autorisation.\r\n\r\n', 0),
+(5, '5. Données personnelles', 'Vos données sont collectées conformément à notre politique de confidentialité et ne sont partagées qu\'avec votre consentement.\r\n\r\n', 0),
+(6, '6. Modification des CGU', 'Nous nous réservons le droit de modifier ces CGU à tout moment. Les changements seront publiés sur cette page.\r\n\r\n', 0),
+(7, '7. Contact', 'Pour toutes questions, merci de consulter la page de contact.', 0),
+(8, '1. Éditeur du site', 'Nom du site: Petway.com\r\nResponsable de la publication: G3E', 1),
+(9, '2. Hébergeur', 'Nom de l\'hébergeur: G3E neuille-land\r\nAdresse de l\'hébergeur: 15 rue du G3E, Neuille-land\r\nContact: neuille-land@nl.com', 1),
+(10, '3. Déclaration des CNIL', 'Conformément à la loi Informatique et Libertés, le site a fait l\'objet d\'une déclaration à la CNIL sous le numéro 123.\r\n\r\n', 1),
+(11, '4. Limitation de responsabilité', 'Nous ne sommes pas responsables des dommages directs ou indirects liés à l\'utilisation du site.\r\n\r\n', 1);
+
 
