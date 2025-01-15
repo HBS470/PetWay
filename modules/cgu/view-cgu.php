@@ -1,77 +1,49 @@
 <?php
-class CguView {
-    public function render() {
 
-?><main>
-    <section id="CGU">
-      <h2>Conditions générales d'utilisation</h2>
-      <div class="Conditions">
-        <h3>1. Présentation</h3>
-        <p>Bienvenue sur Petway ! En utilisant notre plateforme, vous acceptez les présentes conditions générales d'utilisation.</p>
-      </div>
+require_once './modules/cgu/mod-cgu.php';
 
-      <div class="Conditions">
-        <h3>2. Objet du site</h3>
-        <p>Notre site met en relation des particuliers cherchant des services de garde d'animaux avec des petsitters.</p>
-      </div>
+class CguView
+{
+  public function render()
+  {
+    $cgumodel = new CguModel();
 
-      <div class="Conditions">
-        <h3>3. Responsabilités</h3>
-        <ul>
-          <li><strong>Utilisateurs</strong>: Vous êtes responsable des informations que vous fournissez sur le site.</li>
-          <li><strong>Site</strong>: Nous fournissons la plateforme mais ne garantissons pas la qualité des services rendus par les petsitters.</li>
-        </ul>
-      </div>
+    // Récupération des sections CGU et Mentions légales
+    $cguSections = $cgumodel->getSections(0);
+    $legalSections = $cgumodel->getSections(1);
 
-      <div class="Conditions">
-        <h3>4. Propriété intellectuelle</h3>
-        <p>Tous les contenus du site (textes, images, logos) sont protégés par les lois sur la propriété intellectuelle. Toute reproduction est interdite sans autorisation.</p>
-      </div>
+    // Appel à la fonction renderSection pour chaque partie
+?>
+    <main>
+      <section id="CGU">
+        <div class="Conditions">
+          <?php $this->renderSection($cguSections, "Conditions générales d'utilisation"); ?>
+        </div>
+      </section>
+      <br>
+      <section id="CGU2">
+        <div class="Conditions">
+          <?php $this->renderSection($legalSections, "Mentions légales"); ?>
+        </div>
+      </section>
+    </main>
+<?php
+  }
 
-      <div class="Conditions">
-        <h3>5. Données personnelles</h3>
-        <p>Vos données sont collectées conformément à notre politique de confidentialité et ne sont partagées qu'avec votre consentement.</p>
-      </div>
-
-      <div class="Conditions">
-        <h3>6. Modification des CGU</h3>
-        <p>Nous nous réservons le droit de modifier ces CGU à tout moment. Les changements seront publiés sur cette page.</p>
-      </div>
-
-      <div class="Conditions">
-        <h3>7. Contact</h3>
-        <p>Pour toutes questions, merci de consulter la page suivante:<a href="index.php?module=contact">Cliquez ici</a></p>
-      </div>
-      
-    </section>
-    <br>
-    <section id="CGU2">
-    <h2>Mentions légales</h2>
-      <div class="Conditions">
-        <h3>1. Éditeur du site</h3>
-        <p>Nom du site: Petway.com</p>
-        <p>Responsable de la publication: G3E</p>
-      </div>
-
-      <div class="Conditions">
-        <h3>2. Hébergeur</h3>
-        <p>Nom de l'hébergeur: G3E neuille-land</p>
-        <p>Adresse de l'hébergeur: 15 rue du G3E, Neuille-land</p>
-        <p>Contact: <a href="mailto:neuille-land@nl.com">neuille-land@nl.com</a></p>
-      </div>
-
-      <div class="Conditions">
-        <h3>3. Déclaration des CNIL</h3>
-        <p>Conformément à la loi Informatique et Libertés, le site a fait l'objet d'une déclaration à la CNIL sous le numéro 123.</p>
-      </div>
-
-      <div class="Conditions">
-        <h3>4. Limitation de responsabilité</h3>
-        <p>Nous ne sommes pas responsables des dommages directs ou indirects liés à l'utilisation du site.</p>
-      </div>
-    </section>
-  </main>
- <?php
+  private function renderSection($sections, $header)
+  {
+    // Vérifie si des sections existent avant de les afficher
+    if (!empty($sections)) {
+      echo "<h2>" . htmlspecialchars($header) . "</h2>";
+      foreach ($sections as $section) {
+        echo "<div class='Conditions'>";
+        echo "<h3>" . htmlspecialchars($section['titre']) . "</h3>";
+        echo "<p>" . nl2br(htmlspecialchars($section['nom'])) . "</p>";
+        echo "</div>";
+      }
+    } else {
+      echo "<p>Aucune section disponible pour " . htmlspecialchars($header) . ".</p>";
     }
+  }
 }
 ?>
