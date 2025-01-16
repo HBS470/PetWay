@@ -51,16 +51,17 @@ class MotDePasseOublieController {
         try {
             // Configuration du serveur SMTP
             $mail->isSMTP();
-            $mail->Host = 'live.smtp.mailtrap.io';        // Remplacez par votre serveur SMTP
+            $mail->CharSet = 'UTF-8';
+            $mail->Host = 'smtp.gmail.com';        // Remplacez par votre serveur SMTP
             $mail->SMTPAuth = true;
-            $mail->Username = 'api'; // Votre e-mail SMTP
-            $mail->Password = 'c51edfae25bbea1e1ea56b0580f74a18';   // Mot de passe SMTP
+            $mail->Username = 'horeb.silva241004@gmail.com'; // Votre e-mail SMTP
+            $mail->Password = 'mvnd iwbn dwqg bmgv';   // Mot de passe SMTP
             $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
             $mail->Port = 587;                         // Port SMTP
 
             // Destinataires
-            $mail->setFrom('hello@demomailtrap.com', 'PetWay'); // Adresse de l'expéditeur
-            $mail->addAddress('horeb.silva241004@gmail.com');                // Adresse du destinataire
+            $mail->setFrom('horeb.silva241004@gmail.com', 'PetWay'); // Adresse de l'expéditeur
+            $mail->addAddress($recipientEmail);                // Adresse du destinataire
 
             // Contenu de l'e-mail
             $mail->isHTML(true);
@@ -68,7 +69,7 @@ class MotDePasseOublieController {
             $mail->Body = '
             <p>Bonjour,</p>
             <p>Vous avez demandé à réinitialiser votre mot de passe. Cliquez sur le lien ci-dessous pour définir un nouveau mot de passe :</p>
-            <p><a href="' . htmlspecialchars($resetLink) . '">' . 'Lien' . '</a></p>
+            <p><a href="' . htmlspecialchars($resetLink) . '">' . htmlspecialchars($resetLink) . '</a></p>
             <p>Si vous n\'avez pas demandé cette réinitialisation, ignorez simplement cet e-mail.</p>
             <p>Cordialement,<br>Équipe PetWay</p>
         ';

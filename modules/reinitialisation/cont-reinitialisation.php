@@ -12,9 +12,16 @@ class ReinitialisationController {
             $newPassword = $_POST['new_password'] ?? '';
             $confirmPassword = $_POST['confirm_password'] ?? '';
 
+            if (!$token) {
+                $_SESSION['error_reinitialisation'] = "Token invalide ou expiréeeeeeeey.";
+                $view->render();
+                exit;
+            }
+
             if ($newPassword !== $confirmPassword) {
-                echo "Les mots de passe ne correspondent pas.";
-                return;
+                $_SESSION['error_reinitialisation'] = "Les mots de passe ne correspondent pas.";
+                $view->render();
+                exit;
             }
 
             $email = $model->getEmailByToken($token);
@@ -25,14 +32,15 @@ class ReinitialisationController {
                     $model->updatePassword($email, $hashedPassword);
                     $model->deleteResetToken($token);
 
-                    $_SESSION['success_message'] = "Votre mot de passe a été réinitialisé.";
-                    header("Location: index.php?module=connexion");
+                    $_SESSION['sucess_reinitialisation'] = "Votre mot de passe a été réinitialisé.";
                 } else {
-                    $_SESSION['error_message'] = "Token invalide ou expiré.";
+                    $_SESSION['error_reinitialisation'] = "Token invalide ou expiré.";
                 }
             } else {
-                $_SESSION['error_message'] = 'L\'email n\'est pas associé à ce token';
+                $_SESSION['error_reinitialisation'] = 'L\'email n\'est pas associé à ce token';
             }
+            $view->render();
+            exit;
         } else {
             $view->render();
         }

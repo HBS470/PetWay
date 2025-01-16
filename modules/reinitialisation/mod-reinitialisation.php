@@ -32,11 +32,11 @@ class ReinitialisationModel extends ConnexionBD
     }
 
     function validateToken($token, $email) {
-        $stmt = self::$bdd->prepare('SELECT token FROM password_reset WHERE email = :email AND expires_at > NOW()');
+        $stmt = self::$bdd->prepare('SELECT token FROM password_resets WHERE email = :email AND expires_at > NOW()');
         $stmt->execute([':email' => $email]);
 
         $row = $stmt->fetch(PDO::FETCH_ASSOC);
-        if ($row && password_verify($token, $row['token'])) {
+        if ($row && $token === $row['token']) {
             return true; // Le token est valide
         }
 
