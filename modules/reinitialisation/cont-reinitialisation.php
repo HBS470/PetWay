@@ -12,12 +12,6 @@ class ReinitialisationController {
             $newPassword = $_POST['new_password'] ?? '';
             $confirmPassword = $_POST['confirm_password'] ?? '';
 
-            if (!$token) {
-                $_SESSION['error_reinitialisation'] = "Token invalide ou expiréeeeeeeey.";
-                $view->render();
-                exit;
-            }
-
             if ($newPassword !== $confirmPassword) {
                 $_SESSION['error_reinitialisation'] = "Les mots de passe ne correspondent pas.";
                 $view->render();
