@@ -2,15 +2,37 @@ body {
     font-family: Arial, sans-serif;
     margin: 20px;
     background-color: #f8f9fa;
+    text-align: center;
+}
+
+h1 {
+    color: #333;
+    margin-bottom: 20px;
+    animation: fadeIn 1s ease-in-out;
+}
+
+#message {
+    font-size: 1.2rem;
+    color: #28a745;
+    margin-bottom: 10px;
+    animation: fadeOut 2s ease-in-out 2s forwards;
 }
 
 .profile {
     border: 1px solid #ddd;
     border-radius: 8px;
     padding: 16px;
-    margin: 16px 0;
+    margin: 16px auto;
     background-color: #fff;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 300px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    animation: slideIn 0.5s ease-out;
+}
+
+.profile:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
 }
 
 .profile-img {
@@ -19,10 +41,11 @@ body {
     border-radius: 50%;
     object-fit: cover;
     margin-bottom: 12px;
+    transition: transform 0.5s ease;
 }
 
-h2 {
-    margin: 8px 0;
+.profile-img:hover {
+    transform: rotate(10deg) scale(1.1);
 }
 
 .favorite-btn {
@@ -32,14 +55,153 @@ h2 {
     border: none;
     border-radius: 4px;
     cursor: pointer;
-    transition: background-color 0.3s ease;
+    transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
 .favorite-btn:hover {
     background-color: #218838;
+    transform: scale(1.1);
 }
 
 .favorite-btn.favorited {
     background-color: #ffc107;
     color: #000;
+    transform: scale(1.1);
+}
+
+.favorite-btn:active {
+    animation: bounce 0.3s;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes fadeOut {
+    to {
+        opacity: 0;
+    }
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateY(20px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+@keyframes bounce {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.2);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+
+
+.review-section {
+    margin-top: 20px;
+    text-align: left;
+}
+
+.stars {
+    font-size: 20px;
+    color: #ccc;
+    cursor: pointer;
+}
+
+.star:hover,
+.star.selected {
+    color: #ffc107; 
+}
+
+textarea {
+    width: 100%;
+    height: 60px;
+    margin: 10px 0;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+.submit-review {
+    padding: 8px 16px;
+    background-color: #28a745;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.submit-review:hover {
+    background-color: #218838;
+}
+
+.reviews-list {
+    margin-top: 20px;
+    padding-top: 10px;
+    border-top: 1px solid #ddd;
+}
+
+.review-item {
+    margin-bottom: 10px;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    background-color: #f9f9f9;
+}
+
+.pricing {
+    margin-top: 20px;
+    padding: 10px;
+    background-color: #f1f1f1;
+    border-radius: 8px;
+    border: 1px solid #ddd;
+    text-align: left;
+}
+
+.pricing h3 {
+    margin: 0 0 10px;
+    font-size: 1.2em;
+    color: #333;
+}
+
+.pricing ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.pricing li {
+    margin: 5px 0;
+    font-size: 1em;
+}
+
+.reserve-btn {
+    padding: 8px 16px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-top: 10px;
+}
+
+.reserve-btn:hover {
+    background-color: #0056b3;
 }

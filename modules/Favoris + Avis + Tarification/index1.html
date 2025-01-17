@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>Pet Way - Favoris</title>
+</head>
+<body>
+    <h1>Pet Way - Trouvez votre petsitter !</h1>
+    <div id="message"></div> 
+
+   
+     <div class="profile">
+        <img src="petsitter1.jpg" alt="Photo de John " class="profile-img">
+        <h2>John </h2>
+        <p>Petsitter depuis 3 ans, aime les chiens et les chats.</p>
+        <button class="favorite-btn" onclick="toggleFavorite(this, 'John ')">Ajouter aux favoris ❤️</button>
+
+  
+     <div class="pricing">
+            <h3>Tarification</h3>
+            <ul>
+                <li>Promenade : 10€/heure</li>
+                <li>Gardiennage de jour : 50€/jour</li>
+                <li>Gardiennage de nuit : 70€/nuit</li>
+            </ul>
+            <button class="reserve-btn" onclick="reserveService('John')">Réserver un service</button>
+        </div>
+    
+        <div class="review-section">
+            <div class="stars">
+                <span onclick="rate(1, 'John')" class="star">&#9733;</span>
+                <span onclick="rate(2, 'John')" class="star">&#9733;</span>
+                <span onclick="rate(3, 'John')" class="star">&#9733;</span>
+                <span onclick="rate(4, 'John')" class="star">&#9733;</span>
+                <span onclick="rate(5, 'John')" class="star">&#9733;</span>
+                
+            </div>
+             
+    <div id="rating-message-John" style="margin-top: 10px; color: #333;"></div>
+</div>
+            <textarea placeholder="Laissez un avis..." id="review-text-John"></textarea>
+            <button class="submit-review" onclick="submitReview('John')">Soumettre l'avis</button>
+        </div>
+        <div class="reviews-list" id="reviews-John">
+          
+        </div>
+    </div>
+
+  
+    <div class="profile">
+        <img src="petsitter2.jpg" alt="Photo de Lucas" class="profile-img">
+        <h2>Lucas</h2>
+        <p>Expérimentée en soins pour animaux exotiques.</p>
+        <button class="favorite-btn" onclick="toggleFavorite(this, 'Lucas')">Ajouter aux favoris ❤️</button>
+
+         <div class="pricing">
+            <h3>Tarification</h3>
+            <ul>
+                <li>Promenade : 15€/heure</li>
+                <li>Gardiennage de jour : 60€/jour</li>
+                <li>Gardiennage de nuit : 80€/nuit</li>
+            </ul>
+            <button class="reserve-btn" onclick="reserveService('Lucas')">Réserver un service</button>
+        </div>
+
+    
+        
+        <div class="review-section">
+            <div class="stars">
+                <span onclick="rate(1, 'Lucas')" class="star">&#9733;</span>
+                <span onclick="rate(2, 'Lucas')" class="star">&#9733;</span>
+                <span onclick="rate(3, 'Lucas')" class="star">&#9733;</span>
+                <span onclick="rate(4, 'Lucas')" class="star">&#9733;</span>
+                <span onclick="rate(5, 'Lucas')" class="star">&#9733;</span>
+            </div>
+
+        <div id="rating-message-Lucas" style="margin-top: 10px; color: #333;"></div>
+        </div>
+            <textarea placeholder="Laissez un avis..." id="review-text-Lucas"></textarea>
+            <button class="submit-review" onclick="submitReview('Lucas')">Soumettre l'avis</button>
+        </div>
+        
+        <div class="reviews-list" id="reviews-Lucas">
+          
+        </div>
+    </div>
+
+
+    <div class="profile">
+        <img src="petsitter3.jpg" alt="Photo de Emma" class="profile-img">
+        <h2>Emma</h2>
+        <p>Amoureuse des petits lapins et des oiseaux.</p>
+        <button class="favorite-btn" onclick="toggleFavorite(this, 'Emma')">Ajouter aux favoris ❤️</button>
+
+        <div class="pricing">
+            <h3>Tarification</h3>
+            <ul>
+                <li>Promenade : 12€/heure</li>
+                <li>Gardiennage de jour : 55€/jour</li>
+                <li>Gardiennage de nuit : 75€/nuit</li>
+            </ul>
+            <button class="reserve-btn" onclick="reserveService('Emma')">Réserver un service</button>
+        </div>
+
+       
+        <div class="review-section">
+            <div class="stars">
+                <span onclick="rate(1, 'Emma')" class="star">&#9733;</span>
+                <span onclick="rate(2, 'Emma')" class="star">&#9733;</span>
+                <span onclick="rate(3, 'Emma')" class="star">&#9733;</span>
+                <span onclick="rate(4, 'Emma')" class="star">&#9733;</span>
+                <span onclick="rate(5, 'Emma')" class="star">&#9733;</span>
+            </div>
+            
+    <div id="rating-message-Emma" style="margin-top: 10px; color: #333;"></div>
+</div>
+            <textarea placeholder="Laissez un avis..." id="review-text-Emma"></textarea>
+            <button class="submit-review" onclick="submitReview('Emma')">Soumettre l'avis</button>
+        </div>
+        <div class="reviews-list" id="reviews-Emma">
+           
+        </div>
+    </div>
+
+
+    <div class="profile">
+        <img src="petsitter4.jpg" alt="Photo de Thomas" class="profile-img">
+        <h2>Thomas</h2>
+        <p>Spécialiste des promenades et dressage de chiens.</p>
+        <button class="favorite-btn" onclick="toggleFavorite(this, 'Thomas')">Ajouter aux favoris ❤️</button>
+
+         <div class="pricing">
+            <h3>Tarification</h3>
+            <ul>
+                <li>Promenade : 14€/heure</li>
+                <li>Gardiennage de jour : 65€/jour</li>
+                <li>Gardiennage de nuit : 85€/nuit</li>
+            </ul>
+            <button class="reserve-btn" onclick="reserveService('Thomas')">Réserver un service</button>
+        </div>
+
+
+       
+        <div class="review-section">
+            <div class="stars">
+                <span onclick="rate(1, 'Thomas')" class="star">&#9733;</span>
+                <span onclick="rate(2, 'Thomas')" class="star">&#9733;</span>
+                <span onclick="rate(3, 'Thomas')" class="star">&#9733;</span>
+                <span onclick="rate(4, 'Thomas')" class="star">&#9733;</span>
+                <span onclick="rate(5, 'Thomas')" class="star">&#9733;</span>
+            </div>
+
+        <div id="rating-message-Thomas" style="margin-top: 10px; color: #333;"></div>
+</div>
+            <textarea placeholder="Laissez un avis..." id="review-text-Thomas"></textarea>
+            <button class="submit-review" onclick="submitReview('Thomas')">Soumettre l'avis</button>
+        </div>
+        
+   
+        <div class="reviews-list" id="reviews-Thomas">
+            
+        </div>
+    </div>
+
+
+
+
+    <script src="script1.js"></script>
+</body>
+</html>
