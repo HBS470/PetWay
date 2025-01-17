@@ -23,7 +23,7 @@
                 break;
             case 'formulaireanimal' :
                 include_once "modules/formulaireanimal/cont-formulaireanimal.php";
-                $controller = new FormulaireAnmialController();
+                $controller = new FormulaireAnimalController();
                 $controller -> handle();
                 break;
             case 'faq' :

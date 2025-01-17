@@ -3,7 +3,7 @@ class ProfilView {
     public function render () {
 ?>
     <div class="profile-container">
-        <!-- Photo de profil et infos utilisateur -->
+        
         <div class="profile-header">
             <input type="file" id="profile-pic" accept="image/*" style="display: none;">
             <label for="profile-pic" class="profile-pic-upload">
@@ -11,7 +11,7 @@ class ProfilView {
                 <span>Ajouter une photo</span>
             </label>
 
-            <!-- Champs pour nom et ville -->
+            
             <div class="input-group">
                 <label for="name">📝 Nom :</label>
                 <input type="text" id="name" placeholder="Entrez votre nom">
@@ -26,7 +26,7 @@ class ProfilView {
             </div>
         </div>
 
-        <!-- Animaux acceptés -->
+        
         <h2>🐾 Animaux acceptés</h2>
         <div class="row">
             <label><input type="checkbox" id="dog" onchange="toggleWeightSelection()"> 🐶 Chien</label>
@@ -44,7 +44,7 @@ class ProfilView {
             </div>
         </div>
 
-        <!-- Hébergement -->
+       
         <h2>🏠 Hébergement</h2>
         <div class="row">
             <label><input type="checkbox" id="host-own" onchange="togglePriceInput('own')"> Chez moi</label>
@@ -55,13 +55,13 @@ class ProfilView {
             <input type="number" id="price-client" class="price-input" placeholder="Prix (€)" style="display:none;">
         </div>
 
-        <!-- Journée type -->
+        
         <h2>🕒 Journée type</h2>
         <div class="input-group">
             <textarea class="daily-routine" placeholder="Décrivez votre journée type ici..."></textarea>
         </div>
 
-            <!-- Langues Parlées -->
+            
         <h2>🗣️ Langues parlées</h2>
         <div class="input-group">
             <label for="languages">Choisissez les langues :</label>
@@ -78,7 +78,7 @@ class ProfilView {
     <div id="selected-languages" class="languages-preview"></div>
 </div>
 
-        <!-- Informations sur l’environnement -->
+        
         <h2>🏡 Informations sur l’environnement</h2>
         <div class="environment">
             <label><input type="checkbox"> 👶 Enfants présents</label>
@@ -88,7 +88,7 @@ class ProfilView {
             <label><input type="checkbox"> 🐾 Présence d'animaux</label>
         </div>
 
-        <!-- Compétences -->
+        
         <h2>🎓 Compétences</h2>
         <div class="skills">
             <label><input type="checkbox"> 🩺 Administration de médicaments</label>
@@ -99,7 +99,7 @@ class ProfilView {
             <label><input type="checkbox"> 🎓 Éducation basique</label>
         </div>
 
-        <!-- Informations supplémentaires -->
+        
         <h2>📝 Informations supplémentaires</h2>
         <textarea class="daily-routine" placeholder="Ajoutez des informations supplémentaires ici..."></textarea>
 
