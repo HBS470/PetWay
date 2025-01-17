@@ -104,7 +104,7 @@ CREATE TABLE annonce (
                          titre VARCHAR(255),
                          prix FLOAT,
                          description TEXT,
-                         disponibilite BOOLEAN
+                         disponibilite DATE
 );
 
 -- Table creer (relation 1,N entre utilisateur et annonce)
