@@ -112,3 +112,5 @@ if (!errorMessage || errorMessage.textContent.trim() === '') {
 function showPopup() {
     alert("Merci pour votre question !");
 }
+
+

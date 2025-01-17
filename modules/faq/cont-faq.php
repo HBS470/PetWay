@@ -18,8 +18,8 @@ class FAQController {
         $model = new FAQModel();
         $view = new FAQView();
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-            $email = $_POST['email'] ?? '';
-            $question = $_POST['question'] ??'';
+            $email = htmlspecialchars($_POST['email'] ?? '');
+            $question = htmlspecialchars($_POST['question'] ?? '');
 
 
             if (empty($email)) {
@@ -41,8 +41,6 @@ class FAQController {
             }
 
             if ($model->registerQuestion($question)) {
-                $_SESSION['success_message'] = 'Votre question a été prise en compte.';
-                //var_dump($_SESSION['success_message']);
                 $view->render();
                 exit;
 

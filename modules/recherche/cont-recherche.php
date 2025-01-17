@@ -31,9 +31,6 @@ class RechercheController {
             $depart = $_POST['depart'] ?? '';
             $tailleDuChien = $_POST['taille_chien'] ?? '';
 
-            var_dump($serviceType);
-            var_dump($tailleDuChien);
-            var_dump($animalTypes);
 
             // Traitement des données
             // $resultats = $model->rechercherServices($animalTypes, $serviceType, $adresse, $arrivee, $depart, $tailleDuChien);

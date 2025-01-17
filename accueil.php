@@ -1,17 +1,3 @@
-<div class="search-section">
- <div class="search-container">
-     <div class="search-wrapper">
-        <br>
-         <input type="text" class="search-bar" id="search-bar" placeholder="Rechercher..." oninput="toggleClearButton()">
-         <button class="clear-button" id="clear-button" onclick="clearSearch()">🗑️</button>
-     </div>
- </div>
- <button class="search-icon">🔍</button>
- <button class="add-button">+</button>
-</div>
-<div class="bloc_table_white">
-    Bienvenue sur Petway !
-</div>
 <div class="containeraccueil">
     <div class="headeraccueil">
         <h1 style="font-size: 2.5em; color: var(--primary-color); text-shadow: 1px 1px 3px rgba(0,0,0,0.5); text-align: center">Le meilleur choix pour l’accompagnement domestique
@@ -55,7 +41,7 @@
 
             <h3 style="text-align: right; margin-right: 120px">Arrivée / Départ</h3>
             <div class="location-search">
-                <input type="text" placeholder="Code postal ou adresse" class="address-input" id="adresse" name="adresse">
+                <input type="text" placeholder="Code postal" class="address-input" id="adresse" name="adresse">
                 <div class="date-inputs">
                     <input type="date" placeholder="Arrivée" id="arrivee" name="arrivee">
                     <input type="date" placeholder="Départ" id="depart" name="depart">

@@ -1,6 +1,8 @@
 <?php
 //if (!defined('MY_APP')) { exit('Accès non autorisé'); }
 
+require_once 'cont-recherche.php';
+
 class RechercheView {
     public function render() {
 ?>
@@ -48,6 +50,52 @@ class RechercheView {
             <span class="price">40€</span>
         </div>
     </div>
+    <!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet/dist/leaflet.css" />
+
+
+</head>
+<body>
+    <div id="map"></div>
+
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/leaflet/dist/leaflet.js"></script>
+<?php
+$codePostal = isset($_POST['adresse']) ? htmlspecialchars($_POST['adresse']) : '';
+?>
+<script>
+    document.addEventListener("DOMContentLoaded", async () => {
+        const map = L.map('map').setView([48.8566, 2.3522], 13);    // Paris
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            maxZoom: 19,
+        }).addTo(map);
+
+        const adresse = "<?php echo $codePostal; ?>";
+
+        if (adresse) {
+            try {
+                const response = await axios.get(`https://api-adresse.data.gouv.fr/search/?q=${adresse}`);
+                if (response.data.features.length > 0) {
+                    const [lon, lat] = response.data.features[0].geometry.coordinates;
+                    map.setView([lat, lon], 13);
+                } else {
+                    alert("Aucun emplacement trouvé pour ce code postal.");
+                }
+            } catch (error) {
+                console.error(error);
+                alert("Erreur lors de la recherche.");
+            }
+        }
+    });
+</script>
+
+</body>
+</html>
+
 <?php
     }
 }
