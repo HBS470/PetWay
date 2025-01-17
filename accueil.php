@@ -41,7 +41,7 @@
 
             <h3 style="text-align: right; margin-right: 120px">Arrivée / Départ</h3>
             <div class="location-search">
-                <input type="text" placeholder="Code postal ou adresse" class="address-input" id="adresse" name="adresse">
+                <input type="text" placeholder="Code postal" class="address-input" id="adresse" name="adresse">
                 <div class="date-inputs">
                     <input type="date" placeholder="Arrivée" id="arrivee" name="arrivee">
                     <input type="date" placeholder="Départ" id="depart" name="depart">
@@ -93,3 +93,4 @@
         });
 
 </script>
+

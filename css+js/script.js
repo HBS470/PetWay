@@ -85,3 +85,8 @@ if (!errorMessage || errorMessage.textContent.trim() === '') {
     document.getElementById('authPopup').classList.remove('active');
 }
 
+function showPopup() {
+    alert("Merci pour votre question !");
+}
+
+

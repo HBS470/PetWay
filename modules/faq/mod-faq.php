@@ -1,13 +1,23 @@
 <?php
-$db = new PDO("mysql:host=localhost;dbname=petway", "root", "");
+//if (!defined('MY_APP')) {
+//    exit('Accès non authorisé');
+//}
 
-if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $email = htmlspecialchars(trim($_POST['email']));
-    $question = htmlspecialchars(trim($_POST['question']));
+require_once __DIR__ . '/../connexionBD/connexionBD.php';
 
-    if(!empty($question)){
-        $reponse = $db->prepare("insert into faq (question) values (,$question,)");
-        $reponse->execute(array($question));
+
+class FAQModel extends ConnexionBD
+{
+    public function registerQuestion($question)
+    {
+//        if ($this->checkCSRFToken()) {
+            $stmt = self::$bdd->prepare("INSERT INTO faq (question) VALUES (:question)");
+            $stmt->bindParam(':question', $question);
+
+            return $stmt->execute();
+//        }
+
     }
 }
+
 ?>
