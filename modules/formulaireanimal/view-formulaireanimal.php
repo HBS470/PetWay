@@ -33,7 +33,7 @@ public function render () {
             
            
             <label for="taille">Taille (cm) :</label>
-            <input type="number" id="taille" name="taille" min="0.1" step="0.1" required>
+            <input type="number" id="taille" name="taille" min="1" step="1" required>
             
        
             <fieldset>
@@ -47,7 +47,7 @@ public function render () {
                 <label for="type">Type :</label>
                 <input type="text" id="type" name="type" required>
 
-                <label for="restrictions">Maladies / Restrictions :</label>
+            
                 <textarea id="restrictions" name="restrictions" rows="3"></textarea>
             </fieldset>
             

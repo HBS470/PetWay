@@ -170,3 +170,52 @@ CREATE TABLE cgu (
                      id_cgu INT PRIMARY KEY AUTO_INCREMENT,
                      nom VARCHAR(255)
 );
+
+-- Table principale : Petsitter
+CREATE TABLE petsitter (
+    id_petsitter INT PRIMARY KEY AUTO_INCREMENT,
+    animaux VARCHAR(255), 
+    hebergement VARCHAR(255), -- Type d'hébergement (chez moi / chez le propriétaire)
+    journee VARCHAR(255), -- Disponibilité
+    id_utilisateur INT, -- Référence au propriétaire de l'utilisateur
+    informations_sup VARCHAR(255)
+    FOREIGN KEY (id_utilisateur) REFERENCES utilisateur(id_utilisateur)
+);
+
+
+
+-- Table Hébergement
+CREATE TABLE hebergement (
+    id_hebergement INT PRIMARY KEY AUTO_INCREMENT,
+    type_hebergement VARCHAR(50), -- Type d'hébergement (chez moi / chez le propriétaire)
+    prix DECIMAL(10,2), -- Prix de l'hébergement
+    id_petsitter INT,
+    FOREIGN KEY (id_petsitter) REFERENCES petsitter(id_petsitter)
+);
+
+-- Table Environnement
+CREATE TABLE environnement (
+    id_environnement INT PRIMARY KEY AUTO_INCREMENT,
+    enfants_presents BOOLEAN, -- Enfants présents
+    foyer_non_fumeur BOOLEAN, -- Foyer non-fumeur
+    jardin BOOLEAN, -- Présence d’un jardin
+    immeuble BOOLEAN, -- Habite dans un immeuble
+    presence_animaux BOOLEAN, -- Présence d’autres animaux
+    id_petsitter INT,
+    FOREIGN KEY (id_petsitter) REFERENCES petsitter(id_petsitter)
+);
+
+-- Table Compétences
+CREATE TABLE competence (
+    id_competence INT PRIMARY KEY AUTO_INCREMENT,
+    type_competence VARCHAR(255), -- Type de compétence
+    id_petsitter INT,
+    FOREIGN KEY (id_petsitter) REFERENCES petsitter(id_petsitter)
+);
+
+
+-- Table pour les types de compétences (optionnel, pour standardiser les compétences)
+CREATE TABLE type_competence (
+    id_type_competence INT PRIMARY KEY AUTO_INCREMENT,
+    nom VARCHAR(255) -- Ex : Administration de médicaments, Toilettage, etc.
+);
