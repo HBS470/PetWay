@@ -30,7 +30,8 @@ class ConnexionView {
                         <input type="hidden" name="form_type" value="login">
                         <input type="text" name="pseudo" placeholder="Pseudo">
                         <input type="password" name="password" placeholder="Mot de passe">
-                        <button type="submit">Se connecter</button>
+                        <button type="submit">Se connecter</button><br>
+                        <a href="index.php?module=motdepasseoublie" class="forgot-password">Mot de passe oublié ?</a>
                     </form>
                 </div>
 
