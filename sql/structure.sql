@@ -107,6 +107,9 @@ CREATE TABLE annonce (
                          disponibilite DATE
 );
 
+ALTER TABLE annonce ADD COLUMN id_type INT DEFAULT NULL;
+ALTER TABLE annonce ADD CONSTRAINT FOREIGN KEY annonce_type_animal (id_type) REFERENCES type_animal (id_type);
+
 -- Table creer (relation 1,N entre utilisateur et annonce)
 -- Un utilisateur peut créer plusieurs annonces, mais une annonce appartient à un seul utilisateur
 ALTER TABLE annonce ADD COLUMN id_utilisateur INT;
