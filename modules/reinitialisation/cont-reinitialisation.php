@@ -18,6 +18,12 @@ class ReinitialisationController {
                 exit;
             }
 
+            if (strlen($newPassword) < 5) {
+                $_SESSION['error_message'] = 'Le mot de passe doit contenir au moins 5 caractères.';
+                $view->render();
+                exit;
+            }
+
             $email = $model->getEmailByToken($token);
 
             if ($email) {
@@ -34,6 +40,7 @@ class ReinitialisationController {
                 $_SESSION['error_reinitialisation'] = 'L\'email n\'est pas associé à ce token';
             }
             $view->render();
+            header('Refresh:1; url=index.php');
             exit;
         } else {
             $view->render();
