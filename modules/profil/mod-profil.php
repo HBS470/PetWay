@@ -51,7 +51,7 @@ class ProfilModel extends ConnexionBD {
             $queryEnvironment = self::$bdd->prepare("
                 INSERT INTO environnement (id_petsitter, enfants_presents, foyer_non_fumeur, jardin, immeuble, presence_animaux)
                 VALUES (
-                    (SELECT id_petsitter FROM petsitter WHERE id_utilisateur = :id_utilisateur),
+                    (SELECT id_petsitter FROM petsitter WHERE id_utilisateur = :id_utilisateur LIMIT 1),
                     :children_present, :non_smoking, :garden, :building, :other_animals
                 )
                 ON DUPLICATE KEY UPDATE
