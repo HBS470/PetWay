@@ -63,7 +63,6 @@
     </form>
 </div>
 
-
 <script>
     function toggleActiveButton(selector) {
         return function(event) {
@@ -94,3 +93,16 @@
 
 </script>
 
+<!DOCTYPE html>
+        <html lang="fr">
+        <head>
+            <meta charset="UTF-8">
+            <link rel="stylesheet" type="text/css" href="../../css+js/style.css">
+        </head>
+        <body>
+            <div class = "accueil_explication">
+            <h1>Services pour animaux de compagnie</h1>
+            <h2>Promenade d'animaux</h2>
+            <p>Votre chien profite d'une promenade dans votre quartier. Idéal pour les journées chargées et les chiens qui débordent d'énergie.</p>
+            </div>
+        </body>
