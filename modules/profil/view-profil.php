@@ -10,7 +10,7 @@ class ProfilView {
             <div class="profile-header">
                 <input type="file" id="profile-pic" name="photo" accept="image/*" style="display: none;">
                 <label for="profile-pic" class="profile-pic-upload">
-                    <img id="profile-image" src="<?= htmlspecialchars($profilData['photo'] ?? 'default-avatar.png') ?>" alt="Photo de profil">
+                    <img id="profile-image" src="uploads/<?= htmlspecialchars($profilData['photo'] ?? 'default-avatar.png') ?>" alt="Photo de profil">
                     <span>Modifier la photo</span>
                 </label>
             </div>
@@ -109,8 +109,8 @@ class ProfilView {
 
 
 
-            <div class="form-footer">
-                <button type="submit">Enregistrer les modifications</button>
+            <div class="form-footer" style="display:flex;justify-content: center">
+                <button type="submit" class="bouton-rose">Enregistrer les modifications</button>
             </div>
         </form>
     </div>

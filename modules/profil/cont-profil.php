@@ -1,16 +1,7 @@
 <?php
-require_once 'mod-profil.php';
-require_once 'modules/connexionBD/connexionBD.php';
-
+require_once "./modules/profil/mod-profil.php";
+require_once "./modules/profil/view-profil.php";
 class ProfilController {
-    private $model;
-
-    public function __construct() {
-        // Initialiser le modèle avec la connexion à la base de données
-        new ConnexionBD();
-        $this->model = new ProfilModel(ConnexionBD::$bdd);
-    }
-
     public function handle() {
         // Traiter les requêtes POST pour mettre à jour le profil ou GET pour afficher
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
@@ -21,13 +12,12 @@ class ProfilController {
     }
 
     private function showProfil() {
-        $id_utilisateur = $_GET['id'] ?? null;
-
+        $model = new ProfilModel();
+        $view = new ProfilView();
+        $id_utilisateur = $model->getId($_SESSION['user']);
         if ($id_utilisateur) {
-            $profilData = $this->model->getProfil($id_utilisateur);
+            $profilData = $model->getProfil($id_utilisateur);
             if ($profilData) {
-                include_once "view-profil.php";
-                $view = new ProfilView();
                 $view->render($profilData);
             } else {
                 echo "<p style='color: red;'>Erreur : Utilisateur introuvable.</p>";
@@ -39,7 +29,7 @@ class ProfilController {
 
     private function updateProfil() {
         $id_utilisateur = $_POST['id_utilisateur'] ?? null;
-
+        $model = new ProfilModel();
         if ($id_utilisateur) {
             // Données de base utilisateur
             $data = [
@@ -76,9 +66,9 @@ class ProfilController {
             ];
 
             // Mettre à jour les données
-            if ($this->model->updateProfil($id_utilisateur, $data, $petsitterData, $environmentData)) {
+            if ($model->updateProfil($id_utilisateur, $data, $petsitterData, $environmentData)) {
                 // Redirection pour éviter le double affichage de messages
-                header("Location: ?module=profil&id=$id_utilisateur&success=1");
+                header("Location: ?module=profil");
                 exit;
             } else {
                 echo "<p style='color: red;'>Erreur lors de la mise à jour du profil.</p>";

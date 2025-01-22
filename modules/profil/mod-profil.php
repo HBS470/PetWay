@@ -1,14 +1,20 @@
 <?php
-class ProfilModel {
-    private $db;
 
-    public function __construct($db) {
-        $this->db = $db;
+require_once './modules/connexionBD/connexionBD.php';
+
+class ProfilModel extends ConnexionBD {
+
+    public function getId($user) {
+        $stmt = self::$bdd -> prepare("SELECT id_utilisateur FROM Utilisateur WHERE pseudo = :user");
+        $stmt -> bindParam(':user',$user);
+        $stmt->execute();
+        $result = $stmt->fetch(PDO::FETCH_ASSOC);
+        return $result['id_utilisateur'];
     }
 
     // Récupérer les informations utilisateur
     public function getProfil($id_utilisateur) {
-        $query = $this->db->prepare("
+        $query = self::$bdd->prepare("
             SELECT u.*, p.journee, p.animaux, p.hebergement, p.informations_sup
             FROM utilisateur u
             LEFT JOIN petsitter p ON u.id_utilisateur = p.id_utilisateur
@@ -22,10 +28,10 @@ class ProfilModel {
     // Mettre à jour les informations utilisateur
     public function updateProfil($id_utilisateur, $data, $petsitterData, $environmentData) {
         try {
-            $this->db->beginTransaction();
+            self::$bdd->beginTransaction();
 
             // Mise à jour de la table utilisateur
-            $queryUser = $this->db->prepare("
+            $queryUser = self::$bdd->prepare("
                 UPDATE utilisateur 
                 SET nom = :nom, prenom = :prenom, ville = :ville, photo = :photo 
                 WHERE id_utilisateur = :id_utilisateur
@@ -33,7 +39,7 @@ class ProfilModel {
             $queryUser->execute(array_merge($data, ['id_utilisateur' => $id_utilisateur]));
 
             // Mise à jour de la table petsitter
-            $queryPetsitter = $this->db->prepare("
+            $queryPetsitter = self::$bdd->prepare("
                 INSERT INTO petsitter (id_utilisateur, journee, animaux, hebergement, informations_sup)
                 VALUES (:id_utilisateur, :daily_routine, :animals, :hosting, :additional_info)
                 ON DUPLICATE KEY UPDATE
@@ -42,7 +48,7 @@ class ProfilModel {
             $queryPetsitter->execute(array_merge($petsitterData, ['id_utilisateur' => $id_utilisateur]));
 
             // Mise à jour de la table environnement
-            $queryEnvironment = $this->db->prepare("
+            $queryEnvironment = self::$bdd->prepare("
                 INSERT INTO environnement (id_petsitter, enfants_presents, foyer_non_fumeur, jardin, immeuble, presence_animaux)
                 VALUES (
                     (SELECT id_petsitter FROM petsitter WHERE id_utilisateur = :id_utilisateur),
@@ -54,10 +60,10 @@ class ProfilModel {
             ");
             $queryEnvironment->execute(array_merge($environmentData, ['id_utilisateur' => $id_utilisateur]));
 
-            $this->db->commit();
+            self::$bdd->commit();
             return true;
         } catch (Exception $e) {
-            $this->db->rollBack();
+            self::$bdd->rollBack();
             throw $e;
         }
     }
