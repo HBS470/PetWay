@@ -49,7 +49,7 @@
             </div>
 
         <div class="dog-size">
-            <h3>La taille de mon chien</h3>
+            <h3>La poids de mon chien</h3>
             <div class="size-buttons">
                 <input type="hidden" name="taille_chien" id="taille_chien_input" value="petit">
                 <button type="button" class="poids-btn active" id="petit" value="petit">Petit<br>0 - 7 kg</button>
