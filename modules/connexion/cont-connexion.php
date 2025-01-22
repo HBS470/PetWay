@@ -12,6 +12,7 @@ class ConnexionController
 {
     public function handle() {
         unset($_SESSION['error_message']); // Effacer le message d'erreur après l'affichage
+        unset($_SESSION['role']);
 
         $model = new ConnexionModel();
         $view = new ConnexionView();
@@ -41,6 +42,7 @@ class ConnexionController
                 session_regenerate_id(true);
 
                 $_SESSION['user'] = $pseudo;
+                $_SESSION['role'] = $model->getRole($pseudo);
                 $_SESSION['success_message'] =  'Connexion réussie !';
                 $view->render();
                 header('Refresh:1; url=index.php');

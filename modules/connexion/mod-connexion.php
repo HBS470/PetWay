@@ -23,10 +23,27 @@ class ConnexionModel extends ConnexionBD {
     }
 
     public function getRole($name) {
-            $stmt = self::$bdd->prepare("SELECT droit.nom FROM droit INNER JOIN a_le_droit USING (id_droit) INNER JOIN utilisateur USING (id_utilisateur) WHERE pseudo=:name");
+        try {
+            $stmt = self::$bdd->prepare(
+                "SELECT d.nom 
+            FROM utilisateur u 
+            JOIN a_le_droit a ON u.id_utilisateur = a.id_utilisateur 
+            JOIN droit d ON a.id_droit = d.id_droit 
+            WHERE u.pseudo = :name"
+            );
             $stmt->bindParam(':name', $name, PDO::PARAM_STR);
+            $stmt->execute();
+            $result = $stmt->fetch(PDO::FETCH_ASSOC);
 
-            return $stmt->execute();
+            if ($result === false) {
+                // Aucun résultat trouvé
+                return null;
+            }
+            return $result['nom'];
+        } catch (PDOException $e) {
+            echo "Erreur SQL : " . $e->getMessage();
+            return null;
+        }
     }
 }
 ?>
