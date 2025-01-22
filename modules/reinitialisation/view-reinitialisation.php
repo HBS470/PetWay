@@ -8,26 +8,17 @@ class ReinitialisationView
             $error = isset($_SESSION['error_reinitialisation']) ? $_SESSION['error_reinitialisation'] : '';
             unset($_SESSION['error_reinitialisation']);
             $sucess = isset($_SESSION['sucess_reinitialisation']) ? $_SESSION['sucess_reinitialisation'] : '';
-            unset($_SESSION['sucess']);
+            unset($_SESSION['sucess_reinitialisation']);
         ?>
-        <?php if (!empty($error)) :?>
-        <div class="bloc_table_white">
-            <?php  echo $error ?>
-        </div>
-        <?php endif?>
+        <?php displayMessage($error);displayMessage($sucess);?>
 
-        <?php if (!empty($sucess)) :?>
-        <div class="bloc_table_white">
-            <?php  echo $sucess ?>
-        </div>
-        <?php endif?>
         <br>
-        <form action="index.php?module=reinitialisation" method="post">
+        <form action="index.php?module=reinitialisation" method="post" class="form-style">
             <h2 style="text-align: center">Réinitialiser le mot de passe</h2>
             <input type="hidden" name="token" value="<?= $token ?>">
-            <input type="password" name="new_password" placeholder="Nouveau mot de passe" required>
-            <input type="password" name="confirm_password" placeholder="Confirmer le mot de passe" required>
-            <div style="display: flex; justify-content: center""><button type="submit" class="bouton-rose" style="width: 100px; margin-bottom: 20px;">Réinitialiser</button></div>
+            <input type="password" name="new_password" placeholder="Nouveau mot de passe" class="input-middle" required>
+            <input type="password" name="confirm_password" placeholder="Confirmer le mot de passe" class="input-middle" required>
+            <button type="submit" class="bouton-rose" style="margin-bottom: 20px;">Réinitialiser</button>
         </form>
 <?php
 }

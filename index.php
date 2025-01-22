@@ -88,6 +88,12 @@
         return bin2hex(random_bytes(32));
     }
 
+    function displayMessage($message) {
+        if (!empty($message)) {
+            echo "<div class=\"bloc_table_white\">$message</div>";
+        }
+    }
+
     ?>
 
     </body>

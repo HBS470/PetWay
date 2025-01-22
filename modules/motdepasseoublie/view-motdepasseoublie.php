@@ -10,24 +10,16 @@ class MotDePasseOublieView
         unset($_SESSION['sucess']);
         ?>
 
-        <?php if (!empty($error)) :?>
-        <div class="bloc_table_white">
-            <?php  echo $error ?>
-        </div>
-        <?php endif?>
+        <?php displayMessage($sucess);displayMessage($error);?>
 
-        <?php if (!empty($sucess)) :?>
-        <div class="bloc_table_white">
-            <?php  echo $sucess ?>
+        <br>
+        <div class="bloc_table_white" style="width: 30%;display: flex;justify-content: center">
+            <form action="index.php?module=motdepasseoublie" method="post" class="form-style">
+                <h2 style="text-align: center">Récupération de mot de passe</h2>
+                <input type="email" name="email" placeholder = "Entrez votre adresse e-mail" class="input-middle" required>
+                <button type="submit" class="bouton-rose" style="margin-bottom: 20px;"> Envoyer</button>
+            </form>
         </div>
-        <?php endif?>
-            <br>
-        <form action="index.php?module=motdepasseoublie" method="post" style="margin-bottom: 20px;">
-            <h2 style="text-align: center">Récupération de mot de passe</h2>
-            <input type="email" name="email" placeholder = "Entrez votre adresse e-mail" required>
-            <div style="display: flex; justify-content: center""><button type="submit" class="bouton-rose" style="width: 100px;"> Envoyer</button></div>
-        </form>
-
         <?php
 }
 }

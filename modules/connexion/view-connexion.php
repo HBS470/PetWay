@@ -58,11 +58,10 @@ class ConnexionView {
             </div>
         </div>
         <br>
-        <div class="bloc_table_white">
-            <?php  echo $sucess_message ?>
-        </div>
+        <?php displayMessage($sucess_message)?>
 
         <?php
     }
+
 }
 ?>
