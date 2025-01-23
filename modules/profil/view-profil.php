@@ -51,8 +51,7 @@ class ProfilView {
             <div class="row">
                 <label><input type="checkbox" id="host-own" name="hosting[]" value="own" <?= (isset($profilData['hosting']) && in_array('own', $profilData['hosting'])) ? 'checked' : '' ?> onchange="togglePriceInput('own')"> Chez moi</label>
                 <input type="number" id="price-own" name="price_own" value="<?= htmlspecialchars($profilData['price_own'] ?? '') ?>" class="price-input" placeholder="Prix (€)" style="<?= (isset($profilData['hosting']) && in_array('own', $profilData['hosting'])) ? 'display:block;' : 'display:none;' ?>">
-            </div>
-            <div class="row">
+
                 <label><input type="checkbox" id="host-client" name="hosting[]" value="client" <?= (isset($profilData['hosting']) && in_array('client', $profilData['hosting'])) ? 'checked' : '' ?> onchange="togglePriceInput('client')"> Chez le propriétaire</label>
                 <input type="number" id="price-client" name="price_client" value="<?= htmlspecialchars($profilData['price_client'] ?? '') ?>" class="price-input" placeholder="Prix (€)" style="<?= (isset($profilData['hosting']) && in_array('client', $profilData['hosting'])) ? 'display:block;' : 'display:none;' ?>">
             </div>
@@ -94,10 +93,6 @@ class ProfilView {
                 <label><input type="checkbox" name="environment[]" value="garden"> 🌳 Jardin</label>
                 <label><input type="checkbox" name="environment[]" value="building"> 🏢 Immeuble</label>
                 <label><input type="checkbox" name="environment[]" value="other_animals"> 🐾 Présence d'animaux</label>
-            </div>
-            <div class="row">
-                <label><input type="checkbox" id="host-client" name="hosting[]" value="client" <?= (isset($profilData['hosting']) && in_array('client', $profilData['hosting'])) ? 'checked' : '' ?> onchange="togglePriceInput('client')"> Chez le propriétaire</label>
-                <input type="number" id="price-client" name="price_client" value="<?= htmlspecialchars($profilData['price_client'] ?? '') ?>" class="price-input" placeholder="Prix (€)" style="<?= (isset($profilData['hosting']) && in_array('client', $profilData['hosting'])) ? 'display:block;' : 'display:none;' ?>">
             </div>
             <h2>🕒 Journée type</h2>
             <div class="input-group">
