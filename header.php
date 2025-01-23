@@ -7,7 +7,6 @@
     </div>
     <nav class="menu">
         <a href="index.php">Accueil</a>
-        <a href="#">Qui sommes-nous ?</a>
         <a href="index.php?module=faq">FAQ</a>
         <a href="index.php?module=contact">Contactez-nous</a>
         <a href="index.php?module=cgu">CGU</a>
