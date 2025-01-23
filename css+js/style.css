@@ -471,7 +471,7 @@ input, select, textarea {
 }
 
 .place_menu{
-    flex: 200px 150px 250px;
+    flex: 200px 150px;
     padding-left: 230px;
     padding-top: 50px;
     height: 100%;
@@ -495,7 +495,6 @@ input, select, textarea {
 .questions{
     display: flex;
     justify-content: left;
-    align-items: LEFT;
     color: #657786;
     font-size: 19px;
     margin-top: 10px;
@@ -505,7 +504,6 @@ input, select, textarea {
 .reponse{
     display: flex;
     justify-content: left;
-    align-items: left;
     font-size: 17px;
     line-height: 1.8;
     margin: 0 auto;
@@ -805,14 +803,14 @@ input[type="checkbox"] {
 
 /* Compétences et Environnement */
 .skills, .environment {
-    display: flex;
+    display: inline-block;
     flex-wrap: wrap;
     gap: 20px;
     margin-top: 10px;
 }
 
 .skills label, .environment label {
-    display: flex;
+    display: inline-block;
     align-items: center;
     gap: 5px;
     flex: 1 1 45%;
@@ -1320,9 +1318,10 @@ input[type="checkbox"] {
     border-bottom: 1px solid #eee;
 }
 
-#conversations li:hover {
+#conversations li:hover, .conversations-list li.active {
     background-color: #e9e9e9;
 }
+
 
 .message-box {
     flex: 1;
@@ -1366,15 +1365,66 @@ input[type="checkbox"] {
     resize: none;
 }
 
-button {
-    padding: 10px 20px;
-    background-color: #007bff;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
+.message-container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin-bottom: 10px;
 }
 
-button:hover {
-    background-color: #0056b3;
+.message-bubble {
+    display: inline-block;
+    padding: 10px 15px;
+    border-radius: 20px;
+    max-width: 60%;
+}
+
+.message-bubble.sent {
+    background-color: #dcf8c6;
+    align-self: flex-end;
+    margin-right: 10px;
+}
+
+.message-bubble.received {
+    background-color: #f1f1f1;
+    align-self: flex-start;
+    margin-left: 10px;
+}
+
+.message-text {
+    word-wrap: break-word;
+}
+
+.unread-count {
+    display: inline-block;
+    background-color: blue;
+    border-radius: 20px;
+    color:white;
+}
+
+.favori-btn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 20px;
+    color: #ccc; /* Couleur de l'étoile désactivée */
+    transition: color 0.3s ease-in-out;
+}
+
+.favori-btn:hover .favori-icon {
+    color: gold;
+}
+
+/* Icône d'étoile activée */
+.favori-btn .favori-icon.active {
+    color: gold; /* Couleur de l'étoile activée */
+}
+
+/* Icône d'étoile désactivée */
+.favori-btn .favori-icon {
+    color: #ccc; /* Couleur de l'étoile désactivée */
+    font-size: 24px;
 }
