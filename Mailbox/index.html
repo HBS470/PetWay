@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Messagerie</title>
+    <link rel="stylesheet" href="styles.css">
+
+    <header class="center-header">
+        <div class="logo-container">
+            <a href="index.php" style="text-decoration: none"><img src="petway.png" alt="Petway Logo" class="logo">
+            <h1 style="margin-left: 90px; margin-top: 25px;">PetWay</h1></a>
+        </div>
+        <nav class="menu">
+            <a href="index.php">Accueil</a>
+            <a href="#">Qui sommes-nous ?</a>
+            <a href="index.php?module=faq">FAQ</a>
+            <a href="#">Nous rejoindre</a>
+            <a href="#">Contactez-nous</a>
+            <a href="index.php?module=cgu">CGU</a>
+        </nav>
+    
+    </header>
+
+</head>
+<body>
+    <div class="messagerie-container">
+        
+        <div class="conversations-list">
+            <h2>Conversations</h2>
+            <ul id="conversations">
+
+            </ul>
+        </div>
+
+        </div>
+
+        <div class="message-box">
+            <h2>Boîte de réception</h2>
+            <div id="messages">
+            </div>
+            <form id="message-form">
+                <textarea id="message-input" placeholder="Écrivez votre message..." required></textarea>
+                <button type="submit">Envoyer</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

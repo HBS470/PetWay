@@ -45,5 +45,14 @@ class ConnexionModel extends ConnexionBD {
             return null;
         }
     }
+
+    public function getId($pseudo)
+    {
+        $stmt = self::$bdd->prepare("SELECT id_utilisateur FROM Utilisateur WHERE pseudo=:nom");
+        $stmt->bindParam(':nom',$pseudo);
+        $stmt->execute();
+        $result = $stmt->fetch(PDO::FETCH_ASSOC);
+        return $result['id_utilisateur'];
+    }
 }
 ?>

@@ -149,7 +149,7 @@ CREATE TABLE envoyer (
                          FOREIGN KEY (destinataire) REFERENCES utilisateur(id_utilisateur),
                          FOREIGN KEY (expediteur) REFERENCES utilisateur(id_utilisateur)
 );
-
+ALTER TABLE `envoyer` ADD `lu` BOOLEAN NOT NULL DEFAULT FALSE AFTER `message`;
 -- Table avis (relation 1,N entre utilisateur et annonce pour les avis)
 -- Un utilisateur peut laisser plusieurs avis sur différentes annonces
 CREATE TABLE avis (
