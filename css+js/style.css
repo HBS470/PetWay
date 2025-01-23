@@ -129,11 +129,50 @@ header h1 {
     border-radius: 8px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     width: 100%;
-    max-width: 400px;
+    max-width: 1000px; /* Augmentez la largeur maximale */
     box-sizing: border-box;
-    margin-top: 20px; /* Ajoute un espace supplémentaire en haut si nécessaire */
-    justify-items: center;
-    justify-content: center;
+    margin-top: 20px;
+}
+
+.form-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* Deux colonnes */
+    gap: 20px; /* Espace entre les éléments */
+}
+
+.form-grid label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+.form-grid input,
+.form-grid select,
+.form-grid textarea {
+    width: 100%;
+    padding: 8px;
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.form-grid fieldset {
+    grid-column: span 2; /* Les fieldset prennent toute la largeur */
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    padding: 10px;
+    margin: 0;
+}
+
+.form-grid fieldset legend {
+    font-weight: bold;
+    padding: 0 5px;
+}
+/* Alignement des blocs */
+.form-grid > div {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start; /* Aligner en haut */
 }
 
 /* Titre */
@@ -628,23 +667,20 @@ input:focus, select:focus, textarea:focus {
     border-color: #007bff;
 }
 
-/* Bouton de soumission */
 .submit-btn {
-    background-color: #007bff;
-    color: #ffffff;
-    font-size: 16px;
-    font-weight: bold;
-    padding: 10px;
-    margin-top: 15px;
+    grid-column: span 2; /* Le bouton prend toute la largeur */
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 20px;
     border: none;
-    border-radius: 5px;
+    border-radius: 4px;
     cursor: pointer;
-    transition: background-color 0.3s ease;
+    font-size: 16px;
+    justify-content: center;
 }
 
-/* Bouton hover */
 .submit-btn:hover {
-    background-color: #0056b3;
+    background-color: #45a049;
 }
 
 /* Texte d'aide */
@@ -909,6 +945,7 @@ input[type="checkbox"] {
     min-width: 150px;
     color: black;
     border-radius: 10px;
+
 }
 
 .bloc_table_white {
