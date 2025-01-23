@@ -41,6 +41,7 @@ class ConnexionController
                 session_regenerate_id(true);
 
                 $_SESSION['user'] = $pseudo;
+                $_SESSION['user_id'] = $model->getId($pseudo);
                 $_SESSION['success_message'] =  'Connexion réussie !';
                 $view->render();
                 header('Refresh:1; url=index.php');

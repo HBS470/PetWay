@@ -61,6 +61,11 @@
                 $controller = new RechercheController();
                 $controller->handle();
                 break;
+            case 'messagerie' :
+                include_once "modules/messagerie/cont-messagerie.php";
+                $controller = new MessagerieController();
+                $controller->handle();
+                break;
 
             default:
                 echo 'Aucun module detecté !';

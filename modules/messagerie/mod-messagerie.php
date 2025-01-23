@@ -11,9 +11,9 @@ class MessagerieModel extends ConnexionBD {
             ";
         $stmt = self::$bdd->prepare($query);
         $stmt->bindParam(':userId',$id);
-        $stmt->bindParam(':otherUserIs',$otherid);
+        $stmt->bindParam(':otherUserId',$otherid);
         $stmt->execute();
-        $messages = $stmt->fetchAll(PDO::FETCH_ASSOC);
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
 
     public function getUser(){
@@ -28,6 +28,19 @@ class MessagerieModel extends ConnexionBD {
         $stmt->bindParam(':senderId',$exp);
         $stmt->bindParam(':receiverId',$des);
         $stmt->bindParam(':message',$message);
+        $stmt->execute();
+        return 1;
+    }
+
+    public function markMessagesAsRead($userId, $otherUserId) {
+        $query = "
+            UPDATE envoyer 
+            SET lu = 1 
+            WHERE destinataire = :userId AND expediteur = :otherUserId
+        ";
+        $stmt = self::$bdd->prepare($query);
+        $stmt->bindParam(':userId', $userId);
+        $stmt->bindParam(':otherUserId', $otherUserId);
         $stmt->execute();
     }
 
