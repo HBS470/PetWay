@@ -19,6 +19,9 @@ class RechercheView {
                             </div>
                             <p><?= htmlspecialchars($result['Prenom']); ?></p>
                             <span class="price"><?= htmlspecialchars($result['Ville']); ?></span>
+                            <button class="favori-btn" data-user-id="<?= $result['id_utilisateur']; ?>">
+                                <span class="favori-icon <?= $result['isFavori'] ? 'active' : ''; ?>">&#9733;</span> <!-- Étoile -->
+                            </button>
                         </div>
                     <br>
                     <?php endforeach; ?>
@@ -29,7 +32,31 @@ class RechercheView {
                 <div id="map"></div>
             </div>
         </div>
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const favoriButtons = document.querySelectorAll('.favori-btn');
 
+        favoriButtons.forEach(button => {
+            button.addEventListener('click', function() {
+                const userId = this.dataset.userId;
+
+                fetch('/favoris/toggle', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ favori_id: userId })
+                })
+                    .then(response => response.json())
+                    .then(data => {
+                        if (data.status === 'added') {
+                            this.querySelector('.favori-icon').classList.add('active');
+                        } else if (data.status === 'removed') {
+                            this.querySelector('.favori-icon').classList.remove('active');
+                        }
+                    });
+            });
+        });
+    });
+</script>
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">

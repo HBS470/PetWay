@@ -232,3 +232,13 @@ CREATE TABLE type_competence
     id_type_competence INT PRIMARY KEY AUTO_INCREMENT,
     nom                VARCHAR(255) -- Ex : Administration de médicaments, Toilettage, etc.
 );
+
+CREATE TABLE favoris (
+                         id_favori INT AUTO_INCREMENT PRIMARY KEY,
+                         utilisateur_id INT NOT NULL, -- ID de l'utilisateur qui ajoute un favori
+                         favori_id INT NOT NULL, -- ID du profil ajouté en favori
+                         date_ajout TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+                         FOREIGN KEY (utilisateur_id) REFERENCES utilisateur(id_utilisateur),
+                         FOREIGN KEY (favori_id) REFERENCES utilisateur(id_utilisateur),
+                         UNIQUE (utilisateur_id, favori_id) -- Empêche les doublons
+);
