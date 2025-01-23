@@ -190,7 +190,7 @@ CREATE TABLE petsitter (
     hebergement VARCHAR(255), -- Type d'hébergement (chez moi / chez le propriétaire)
     journee VARCHAR(255), -- Disponibilité
     id_utilisateur INT, -- Référence au propriétaire de l'utilisateur
-    informations_sup VARCHAR(255)
+    informations_sup VARCHAR(255),
     FOREIGN KEY (id_utilisateur) REFERENCES utilisateur(id_utilisateur)
 );
 
@@ -227,6 +227,8 @@ CREATE TABLE competence (
 
 
 -- Table pour les types de compétences (optionnel, pour standardiser les compétences)
-CREATE TABLE type_competence (
+CREATE TABLE type_competence
+(
     id_type_competence INT PRIMARY KEY AUTO_INCREMENT,
-    nom VARCHAR(255) -- Ex : Administration de médicaments, Toilettage, etc.
+    nom                VARCHAR(255) -- Ex : Administration de médicaments, Toilettage, etc.
+);
