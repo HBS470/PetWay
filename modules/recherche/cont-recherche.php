@@ -18,25 +18,20 @@ class RechercheController {
             if (isset($_POST['chat'])) $animalTypes[] = 'chat';
             if (isset($_POST['lapin'])) $animalTypes[] = 'lapin';
 
-            if ($_POST['hebergement'] = 1) {
-                $serviceType = 'hebergement';
+            $serviceType = ($_POST['hebergement'] == 1) ? 'hebergement' : 'garde';
 
-            }
-            else {
-                $serviceType = 'garde';
-            }
             switch ($_POST['taille_chien']) {
                 case 'petit' :
-                    $tailleDuChien = 7;
+                    $poidsChien = 7;
                     break;
                 case 'moyen' :
-                    $tailleDuChien = 14 ;
+                    $poidsChien = 14 ;
                     break;
                 case 'grand' :
-                    $tailleDuChien = 45;
+                    $poidsChien = 45;
                     break;
                 case 'geant' :
-                    $tailleDuChien = 50 ;
+                    $poidsChien = 50 ;
                     break;
                 default :
                     break;
@@ -47,13 +42,13 @@ class RechercheController {
 
 
             // Traitement des données
-            // $resultats = $model->rechercherServices($animalTypes, $serviceType, $adresse, $arrivee, $depart, $tailleDuChien);
+            $resultats = $model->search($adresse,$arrivee,$depart,$serviceType,$animalTypes,$poidsChien);
 
             // Affichage des résultats
-            $view->render();
+            $view->render($resultats);
         } else {
-            // Affichage du formulaire initial
-            $view->render();
+            $resultats = '';
+            $view->render($resultats);
         }
     }
 }
