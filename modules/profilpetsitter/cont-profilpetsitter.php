@@ -1,7 +1,7 @@
 <?php
-require_once "./modules/profil/mod-profil.php";
-require_once "./modules/profil/view-profil.php";
-class ProfilController {
+require_once "./modules/profilpetsitter/mod-profilpetsitter.php";
+require_once "./modules/profilpetsitter/view-profilpetsitter.php";
+class ProfilPetsitterController {
     public function handle() {
         // Traiter les requêtes POST pour mettre à jour le profil ou GET pour afficher
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
@@ -12,8 +12,8 @@ class ProfilController {
     }
 
     private function showProfil() {
-        $model = new ProfilModel();
-        $view = new ProfilView();
+        $model = new ProfilPetsitterModel();
+        $view = new ProfilPetsitterView();
         $id_utilisateur = $model->getId($_SESSION['user']);
         if ($id_utilisateur) {
             $profilData = $model->getProfil($id_utilisateur);
@@ -29,7 +29,7 @@ class ProfilController {
 
     private function updateProfil() {
         $id_utilisateur = $_POST['id_utilisateur'] ?? null;
-        $model = new ProfilModel();
+        $model = new ProfilPetsitterModel();
         if ($id_utilisateur) {
             // Données de base utilisateur
             $data = [
@@ -68,7 +68,7 @@ class ProfilController {
             // Mettre à jour les données
             if ($model->updateProfil($id_utilisateur, $data, $petsitterData, $environmentData)) {
                 // Redirection pour éviter le double affichage de messages
-                header("Location: ?module=profil");
+                header("Location: ?module=profilpetsitter");
                 exit;
             } else {
                 echo "<p style='color: red;'>Erreur lors de la mise à jour du profil.</p>";

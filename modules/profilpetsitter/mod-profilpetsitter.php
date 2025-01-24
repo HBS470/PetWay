@@ -2,7 +2,7 @@
 
 require_once './modules/connexionBD/connexionBD.php';
 
-class ProfilModel extends ConnexionBD {
+class ProfilPetsitterModel extends ConnexionBD {
 
     public function getId($user) {
         $stmt = self::$bdd -> prepare("SELECT id_utilisateur FROM Utilisateur WHERE pseudo = :user");
