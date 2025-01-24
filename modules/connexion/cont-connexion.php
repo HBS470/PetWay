@@ -44,6 +44,7 @@ class ConnexionController
                 $_SESSION['user'] = $pseudo;
                 $_SESSION['role'] = $model->getRole($pseudo);
                 $_SESSION['user_id'] = $model->getId($pseudo);
+                $_SESSION['url_photo'] = $model->getPhoto($pseudo) ;
                 $_SESSION['success_message'] =  'Connexion réussie !';
                 $view->render();
                 header('Refresh:1; url=index.php');

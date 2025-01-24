@@ -716,7 +716,7 @@ input:not(.submit-btn), select, textarea, small {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-/* Header de profil */
+/* Header de profilpetsitter */
 .profile-header {
     display: flex;
     align-items: center;
@@ -1427,4 +1427,34 @@ input[type="checkbox"] {
 .favori-btn .favori-icon {
     color: #ccc; /* Couleur de l'étoile désactivée */
     font-size: 24px;
+}
+
+.profile-actions {
+    margin-top: 10px;
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+}
+
+.btn-change-password, .btn-delete-profile {
+    background-color: #0000ff;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    font-size: 14px;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s ease-in-out;
+}
+
+.btn-change-password:hover {
+    background-color: #6f6fff;
+}
+
+.btn-delete-profile {
+    background-color: #f44336;
+}
+
+.btn-delete-profile:hover {
+    background-color: #d32f2f;
 }

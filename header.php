@@ -14,11 +14,12 @@
         if (isset($_SESSION['user'])) {
             echo '<div class="profile-dropdown">';
             echo '<div class="profile-info">';
-            echo '<img src="uploads/' . htmlspecialchars($_SESSION['user']) . '" alt="Photo de profil"  onerror="this.src=\'uploads/default-avatar.png\'" class="profile-pic">';
+            echo '<img src="uploads/' . htmlspecialchars($_SESSION['url_photo']) . '" alt="Photo de profilpetsitter"  onerror="this.src=\'uploads/default-avatar.png\'" class="profile-pic">';
             echo '<span class="username">' . htmlspecialchars($_SESSION['user']) . '</span>';
             echo '</div>';
             echo '<div class="dropdown-content">';
-            echo '<a href="index.php?module=profil">Profil</a>';
+            echo '<a href="index.php?module=infos">Informations Personnelles</a>';
+            echo '<a href="index.php?module=profilpetsitter">Profil</a>';
             if ($_SESSION['role'] === 'Proprio') {
                 echo '<a href="index.php?module=formulaireanimal">Vos animaux</a>';
             }

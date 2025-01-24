@@ -1,4 +1,4 @@
-// Mise à jour de la photo de profil
+// Mise à jour de la photo de profilpetsitter
 document.addEventListener('DOMContentLoaded', function () {
     const profilePicInput = document.getElementById('profile-pic');
     const profileImage = document.getElementById('profile-image');
@@ -115,4 +115,8 @@ function showPopup() {
     alert("Merci pour votre question !");
 }
 
-
+function confirmDeleteProfile() {
+    if (confirm("Êtes-vous sûr de vouloir supprimer votre profil ? Cette action est irréversible.")) {
+        window.location.href = "?module=deleteprofil";
+    }
+}

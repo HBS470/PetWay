@@ -54,5 +54,13 @@ class ConnexionModel extends ConnexionBD {
         $result = $stmt->fetch(PDO::FETCH_ASSOC);
         return $result['id_utilisateur'];
     }
+
+    public function getPhoto($pseudo) {
+        $stmt = self::$bdd->prepare("SELECT photo FROM Utilisateur WHERE pseudo=:nom");
+        $stmt->bindParam(':nom',$pseudo);
+        $stmt->execute();
+        $result = $stmt->fetch(PDO::FETCH_ASSOC);
+        return $result['photo'];
+    }
 }
 ?>
