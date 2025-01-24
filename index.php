@@ -18,9 +18,9 @@
         $module = $_GET['module'];
 
         switch ($module) {
-            case 'profil' :
-                include_once "modules/profil/cont-profil.php";
-                $controller = new ProfilController();
+            case 'profilpetsitter' :
+                include_once "modules/profilpetsitter/cont-profilpetsitter.php";
+                $controller = new ProfilPetsitterController();
                 $controller -> handle();
                 break;
             case 'formulaireanimal' :
@@ -78,6 +78,16 @@
                 $controller = new MessagerieController();
                 $controller->handle();
                 break;
+            case 'infos' :
+                include_once "modules/infos/cont-infos.php";
+                $controller = new InfosController();
+                $controller->handle();
+                break;
+            case 'deleteprofil' :
+                include_once "modules/deleteprofil/cont-deleteprofil.php";
+                $controller = new DeleteProfilController();
+                $controller->handle();
+                break;
             default:
                 echo 'Aucun module detecté !';
                 break;
@@ -86,6 +96,15 @@
     }
     else {
         include_once "accueil.php";
+    }
+
+    $request = $_SERVER['REQUEST_URI'];
+
+    switch ($request) {
+        case '/messagerie/send':
+            $controller = new MessagerieController();
+            $controller->sendMessage();
+            break;
     }
 
     include_once "footer.php";

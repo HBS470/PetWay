@@ -40,7 +40,7 @@ CREATE TABLE a_le_droit (
                             id_utilisateur INT,
                             id_droit INT,
                             FOREIGN KEY (id_utilisateur) REFERENCES utilisateur(id_utilisateur),
-                            FOREIGN KEY (id_droit) REFERENCES droit(id_droit)
+                            FOREIGN KEY (id_droit) REFERENCES droit(id_droit) ON DELETE CASCADE
 );
 
 -- Table langue (1)
@@ -236,7 +236,7 @@ CREATE TABLE type_competence
 CREATE TABLE favoris (
                          id_favori INT AUTO_INCREMENT PRIMARY KEY,
                          utilisateur_id INT NOT NULL, -- ID de l'utilisateur qui ajoute un favori
-                         favori_id INT NOT NULL, -- ID du profil ajouté en favori
+                         favori_id INT NOT NULL, -- ID du profilpetsitter ajouté en favori
                          date_ajout TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
                          FOREIGN KEY (utilisateur_id) REFERENCES utilisateur(id_utilisateur),
                          FOREIGN KEY (favori_id) REFERENCES utilisateur(id_utilisateur),
