@@ -88,6 +88,11 @@
                 $controller = new DeleteProfilController();
                 $controller->handle();
                 break;
+            case 'changepassword' :
+                include_once "modules/changepassword/cont-changepassword.php";
+                $controller = new ChangePasswordController();
+                $controller->handle();
+                break;
             default:
                 echo 'Aucun module detecté !';
                 break;

@@ -6,30 +6,7 @@ class ProfilPetsitterView {
         <form method="POST" action="?module=profilpetsitter" enctype="multipart/form-data" >
             <!-- Champ caché pour passer l'ID utilisateur -->
             <input type="hidden" name="id_utilisateur" value="<?= htmlspecialchars($profilData['id_utilisateur'] ?? '') ?>">
-
-            <div class="profile-header">
-                <input type="file" id="profile-pic" name="photo" accept="image/*" style="display: none;">
-                <label for="profile-pic" class="profile-pic-upload">
-                    <img id="profile-image" src="uploads/<?= htmlspecialchars($profilData['photo'] ?? 'default-avatar.png') ?>" alt="Photo de profil">
-                    <span>Modifier la photo</span>
-                </label>
-            </div>
-
-            <div class="input-group">
-                <label for="name">📝 Nom :</label>
-                <input type="text" id="name" name="nom" value="<?= htmlspecialchars($profilData['nom'] ?? '') ?>" placeholder="Entrez votre nom" required>
-            </div>
-
-            <div class="input-group">
-                <label for="prenom">📝 Prénom :</label>
-                <input type="text" id="prenom" name="prenom" value="<?= htmlspecialchars($profilData['prenom'] ?? '') ?>" placeholder="Entrez votre prénom" required>
-            </div>
-
-            <div class="input-group">
-                <label for="city">📍 Ville :</label>
-                <input type="text" id="city" name="ville" value="<?= htmlspecialchars($profilData['ville'] ?? '') ?>" placeholder="Entrez votre ville" required>
-            </div>
-
+            
             <h2>🐾 Animaux acceptés</h2>
             <div class="row">
                 <label><input type="checkbox" id="dog" name="animals[]" value="dog" <?= (isset($profilData['animals']) && in_array('dog', $profilData['animals'])) ? 'checked' : '' ?> onchange="toggleWeightSelection()"> 🐶 Chien</label>

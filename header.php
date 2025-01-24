@@ -14,7 +14,7 @@
         if (isset($_SESSION['user'])) {
             echo '<div class="profile-dropdown">';
             echo '<div class="profile-info">';
-            echo '<img src="uploads/' . htmlspecialchars($_SESSION['url_photo']) . '" alt="Photo de profilpetsitter"  onerror="this.src=\'uploads/default-avatar.png\'" class="profile-pic">';
+            echo '<img src="uploads/' .($_SESSION['url_photo']). '" alt="Photo de profilpetsitter"  onerror="this.src=\'uploads/default-avatar.png\'" class="profile-pic">';
             echo '<span class="username">' . htmlspecialchars($_SESSION['user']) . '</span>';
             echo '</div>';
             echo '<div class="dropdown-content">';

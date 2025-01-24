@@ -13,13 +13,11 @@ class MotDePasseOublieView
         <?php displayMessage($sucess);displayMessage($error);?>
 
         <br>
-        <div class="bloc_table_white" style="width: 30%;display: flex;justify-content: center">
             <form action="index.php?module=motdepasseoublie" method="post" class="form-style">
                 <h2 style="text-align: center">Récupération de mot de passe</h2>
                 <input type="email" name="email" placeholder = "Entrez votre adresse e-mail" class="input-middle" required>
                 <button type="submit" class="bouton-rose" style="margin-bottom: 20px;"> Envoyer</button>
             </form>
-        </div>
         <?php
 }
 }

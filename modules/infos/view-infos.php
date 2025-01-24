@@ -14,7 +14,7 @@ class InfosView {
                     <span>Modifier la photo</span>
                 </label>
                 <div class="profile-actions">
-                    <button type="button" class="btn-change-password" onclick="location.href='?module=changePassword'">Changer de mot de passe</button>
+                    <button type="button" class="btn-change-password" onclick="location.href='?module=changepassword'">Changer de mot de passe</button>
                     <button type="button" class="btn-delete-profile" onclick="confirmDeleteProfile()">Supprimer le profil</button>
                 </div>
             </div>
