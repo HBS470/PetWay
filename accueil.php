@@ -39,14 +39,14 @@
             </div>
         </div>
 
-        <h3 style="text-align: right; margin-right: 120px">Arrivée / Départ</h3>
-        <div class="location-search">
-            <input type="text" placeholder="Code postal" class="address-input" id="adresse" name="adresse">
-            <div class="date-inputs">
-                <input type="date" placeholder="Arrivée" id="arrivee" name="arrivee">
-                <input type="date" placeholder="Départ" id="depart" name="depart">
+            <h3 style="text-align: right; margin-right: 120px">Arrivée / Départ</h3>
+            <div class="location-search">
+                <input type="text" placeholder="Code postal" class="address-input" id="adresse" name="adresse">
+                <div class="date-inputs">
+                    <input type="date" placeholder="Arrivée" id="arrivee" name="arrivee">
+                    <input type="date" placeholder="Départ" id="depart" name="depart">
+                </div>
             </div>
-        </div>
 
         <div class="dog-size">
             <h3>La taille de mon chien</h3>
@@ -106,15 +106,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Services pour animaux</title>
+    <title>Services pour animaux</title>    
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link rel="stylesheet" type="text/css" href="../../css+js/style.css">
 </head>
 <body>
-<div class="accueil_explication">
+     <div class="accueil_explication">
     <div class="services-container">
         <h1 class="services-title">Services pour animaux de compagnie</h1>
-
+        
         <div class="service-item">
             <svg class="service-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                 <path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z" />
@@ -136,7 +136,7 @@
 
     <div class="how-it-works">
         <h1 class="title">Rencontrez des petsitters locaux qui traiteront vos animaux comme des membres de la famille</h1>
-
+        
         <div class="steps">
             <div class="step-card">
                 <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
@@ -163,6 +163,6 @@
             </div>
         </div>
     </div>
-</div>
+      </div>
 </body>
 </html>
