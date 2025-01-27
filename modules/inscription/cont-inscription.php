@@ -23,7 +23,6 @@ class InscriptionController {
             $confirm_password = $_POST['confirm_password'] ?? '';
             $role = $_POST['role'] ?? '';
             $ville = $_POST['ville'] ?? '';
-            $photo = $_POST['photo'] ?? '';
             $_SESSION['active_tab'] = 'signup';
 
             if (empty($nom)) {
@@ -75,6 +74,21 @@ class InscriptionController {
                 $_SESSION['error_message'] = 'Ce pseudo est déjà pris, veuillez en choisir un autre.';
                 $view->render();
                 return;
+            }
+
+            $photo = null;
+            if (!empty($_FILES['photo']['tmp_name'])) {
+                $target_dir = "uploads/";
+                $file_extension = pathinfo($_FILES['photo']['name'], PATHINFO_EXTENSION);
+                $target_file = $target_dir . basename($_SESSION['user'] . "." . $file_extension);
+
+                // Déplace le fichier uploadé
+                if (move_uploaded_file($_FILES['photo']['tmp_name'], $target_file)) {
+                    $photo = basename($target_file);
+                } else {
+                    // En cas d'erreur lors de l'upload
+                    die("Erreur lors de l'upload de l'image.");
+                }
             }
 
             $passwordHash = password_hash($password, PASSWORD_DEFAULT);

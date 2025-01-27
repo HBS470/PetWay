@@ -22,6 +22,9 @@ class RechercheView {
                             <button class="favori-btn" data-user-id="<?= $result['id_utilisateur']; ?>">
                                 <span class="favori-icon <?= $result['isFavori'] ? 'active' : ''; ?>">&#9733;</span> <!-- Étoile -->
                             </button>
+                            <button class="bouton-rose" data-user-id="<?= $result['id_utilisateur']; ?>">
+                                <span onclick="location.href='?module=messagerie'">Envoyer un message</span> <!-- Étoile -->
+                            </button>
                         </div>
                     <br>
                     <?php endforeach; ?>

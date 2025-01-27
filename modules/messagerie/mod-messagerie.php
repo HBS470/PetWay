@@ -43,5 +43,21 @@ class MessagerieModel extends ConnexionBD {
         $stmt->bindParam(':otherUserId', $otherUserId);
         $stmt->execute();
     }
+    public function getIdConversation($userId) {
+    // Récupérer les ID des utilisateurs avec lesquels l'utilisateur connecté a communiqué
+    $query = "SELECT DISTINCT 
+                CASE 
+                    WHEN expediteur = :userId THEN destinataire 
+                    WHEN destinataire = :userId THEN expediteur                
+                END AS conversation_user_id
+              FROM envoyer
+              WHERE expediteur = :userId OR destinataire = :userId";
+
+    $stmt = self::$bdd->prepare($query);
+    $stmt->bindParam(':userId', $userId);
+    $stmt->execute();
+    return $stmt->fetchAll(PDO::FETCH_COLUMN);
+    }
+
 
 }

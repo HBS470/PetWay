@@ -13,6 +13,9 @@ class ConnexionController
     public function handle() {
         unset($_SESSION['error_message']); // Effacer le message d'erreur après l'affichage
         unset($_SESSION['role']);
+        unset($_SESSION['user_id']);
+        unset($_SESSION['url_photo']);
+        unset($_SESSION['user']);
 
         $model = new ConnexionModel();
         $view = new ConnexionView();

@@ -5,7 +5,7 @@ require_once './modules/formulaireanimal/view-formulaireanimal.php';
 class FormulaireAnimalController {
     public function handle() {
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-            
+
             $animal = $_POST['animal'];
             $poids = $_POST['poids'];
             $nom = $_POST['nom'];
@@ -17,7 +17,7 @@ class FormulaireAnimalController {
             $type = $_POST['type'];
             $restrictions = $_POST['restrictions'];
             $habitudes = $_POST['habitudes'];
-            $exercice = $_POST['exercice'];
+            $exercice = $_POST['exercice'] ?? '';
             $maladies = $_POST['maladies'];
             $medicaments = $_POST['medicaments'];
             $caractere = $_POST['caractere'];
@@ -33,13 +33,13 @@ class FormulaireAnimalController {
                 if (in_array($fileExtension, $allowedExtensions) && $photo['size'] <= 5 * 1024 * 1024) {
                     $photoPath = 'uploads/' . uniqid() . '.' . $fileExtension;
                     if (!move_uploaded_file($photo['tmp_name'], $photoPath)) {
-                        die("Erreur : Impossible de sauvegarder l'image.");
+                        $_SESSION['add_animal'] = "Erreur : Impossible de sauvegarder l'image.";
                     }
                 } else {
-                    die("Erreur : Format ou taille de fichier non valide.");
+                    $_SESSION['add_animal'] = "Erreur : Format ou taille de fichier non valide.";
                 }
             } else {
-                die("Erreur lors du téléchargement de l'image.");
+                $_SESSION['add_animal'] = "Erreur lors du téléchargement de l'image.";
             }
 
            
@@ -47,13 +47,13 @@ class FormulaireAnimalController {
             $result = $model->ajouterAnimal(
                 $animal, $poids, $nom, $race, $age, $taille, $frequence,
                 $quantite, $type, $restrictions, $habitudes, $exercice, 
-                $maladies, $medicaments, $caractere, $horaires, $instructions, $photoPath
+                $maladies, $medicaments, $caractere, $horaires, $instructions, $photoPath,$_SESSION['user_id']
             );
 
             if ($result) {
-                echo "Animal ajouté avec succès.";
+                $_SESSION['add_animal'] = "Animal ajouté avec succès.";
             } else {
-                echo "Erreur lors de l'ajout de l'animal.";
+                $_SESSION['add_animal'] = "Erreur lors de l'ajout de l'animal.";
             }
         }
         $view = new FormulaireAnimalView();

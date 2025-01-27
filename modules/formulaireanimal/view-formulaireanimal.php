@@ -1,6 +1,9 @@
 <?php
 class FormulaireAnimalView {
 public function render () {
+    $message = isset($_SESSION['add_animal']) ? $_SESSION['add_animal'] : '';
+    unset($_SESSION['add_animal']);
+    displayMessage($message);
 ?>
     <div style="display: flex; justify-content: center;">
         <div class="containeranimal">
